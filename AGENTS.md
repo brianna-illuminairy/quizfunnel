@@ -1,51 +1,44 @@
-# Agent guide — quizfunnel
+# Agent guide — quizfunnel (specs + copy)
 
-Instructions for AI assistants working in **this repository** (SAT quiz funnel prototype). Not the main Illuminairy Next.js site.
+**This repo does not ship the live funnel.** Production code is in the **Illuminairy** Next.js repo at **`/satplan`**.
 
-## What this repo is
+## Source of truth
 
-- **Prototype:** static HTML + React 18 (UMD + Babel) in [`prototype/`](prototype/)
-- **Product:** parent-facing SAT assessment funnel for Meta traffic → book a call (no Stripe in v1)
-- **Process:** one screen at a time; Brianna approves before the next screen ships
+| Build here | Location |
+|------------|----------|
+| **Runnable funnel** | Illuminairy repo → `app/satplan/`, `components/sat-plan/`, `lib/sat-plan-funnel/` |
+| **URL** | https://illuminairy.com/satplan (`?step=worries`, etc.) |
+| **Local dev** | `npm run dev` in Illuminairy → http://localhost:3000/satplan |
+| **Specs & screen checklists** | This repo (`files/`, `specs/`, `PLAN-sat-funnel.md`) |
 
-## Read first
+## Do not use the Babel prototype
 
-| Resource | When |
-|----------|------|
-| [`memory-bank/activeContext.md`](memory-bank/activeContext.md) | Current focus, screen status |
-| [`memory-bank/progress.md`](memory-bank/progress.md) | Done / backlog |
-| [`specs/ACTIVE.md`](specs/ACTIVE.md) | Active spec path |
-| [`files/funnel-layout-rules.md`](files/funnel-layout-rules.md) | Non-negotiable layout (CTA, column, safe areas) |
-| [`files/funnel-performance.md`](files/funnel-performance.md) | Load times, Lighthouse gates, CWV budgets |
-| [`files/quiz-step-template.md`](files/quiz-step-template.md) | Reusable components — **use for every new quiz step** |
-| [`PLAN-sat-funnel.md`](PLAN-sat-funnel.md) | Full screen list + hypotheses |
+[`prototype/`](prototype/) is **deprecated** (unpkg React + in-browser Babel). See [`prototype/DEPRECATED.md`](prototype/DEPRECATED.md).
 
-## Golden rules
-
-1. **Reusable shell** — New quiz screens use `QuizStepTemplate` + body components (`QuizTileGrid`, etc.). Do **not** call `FunnelShell` from `screens/*`.
-2. **One primary CTA** — Use `FunnelCta` on landing and quiz steps (same `.cta` styles).
-3. **Layout in one place** — Shell, scroll, sticky footer, column width live in `prototype/styles.css` + layout rules doc. Screens change copy and body UI only.
-4. **No SAT score guarantees** — Follow [`files/illuminairy_brand_kit_brief.md`](files/illuminairy_brand_kit_brief.md).
-5. **Design for 390×844** — QA Instagram/Facebook in-app browser on a real device before calling a screen done ([`files/research/meta-in-app-browser-qa.md`](files/research/meta-in-app-browser-qa.md)).
-6. **Local dev** — `cd prototype && python3 -m http.server 8765` → `http://localhost:8765/Landing.html`.
+- **Do not** add new screens under `prototype/`.
+- **Do not** point Meta ads or QA sign-off at `Landing.html` on port 8765.
+- **Do not** treat “port to Next.js later” as the plan — production **is** Next.js.
 
 ## New quiz screen checklist
 
-1. Add step to `prototype/funnel-state.js` (`STEPS` progress + label).
-2. Create `prototype/screens/your-step.jsx` with `QuizStepTemplate` (headline, hint, body only).
-3. Wire route in `prototype/app.jsx`.
-4. Add `files/screens/screen-NN-….md` checklist for content review.
-5. Update `memory-bank/activeContext.md` when the session ends.
+1. Implement in **Illuminairy** using `QuizStepTemplate` + body components (copy from `components/sat-plan/` patterns).
+2. Add step to `lib/sat-plan-funnel/state.ts` + router in `components/sat-plan/sat-plan-funnel.tsx`.
+3. Update copy checklist in `files/screens/screen-NN-….md` (this repo).
+4. Update `memory-bank/activeContext.md` in **both** repos when done.
 
-## What not to do
+## Read first (this repo)
 
-- Do not treat each screen as a new mini-site (duplicate headline/CTA/shell markup).
-- Do not commit `noomswipefiles/` (local reference only).
-- Do not apply academic “student code style” rules from other workspaces.
+| Resource | When |
+|----------|------|
+| [`memory-bank/activeContext.md`](memory-bank/activeContext.md) | Screen status |
+| [`files/quiz-step-template.md`](files/quiz-step-template.md) | Component slots (implemented in Illuminairy `components/sat-plan/`) |
+| [`files/funnel-layout-rules.md`](files/funnel-layout-rules.md) | Layout rules → `app/satplan/funnel.css` |
+| [`files/funnel-performance.md`](files/funnel-performance.md) | Lighthouse / IAB gates |
+| [`PLAN-sat-funnel.md`](PLAN-sat-funnel.md) | Full screen map |
 
-## Port to Next.js (later)
+## Illuminairy golden rules (production)
 
-Production integration targets the main Illuminairy repo (`app/go/…`, `lib/analytics-events.ts`, Supabase leads). Keep prototype behavior aligned with [`specs/sat-quiz-funnel/SPEC.md`](specs/sat-quiz-funnel/SPEC.md).
+Follow Illuminairy `AGENTS.md`: facts in `lib/site.ts`, no SAT guarantees, no tutor Calendly on public pages, `npm run agent:verify` before done.
 
 ## Owner
 

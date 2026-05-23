@@ -1,4 +1,4 @@
-# SPEC: SAT quiz funnel (prototype → production)
+# SPEC: SAT quiz funnel (production at `/satplan`)
 
 - **PRD:** [PRD.md](./PRD.md)
 - **Date:** 2026-05-23
@@ -10,26 +10,26 @@ Ship a measurable funnel: Meta LP → assessment → parent contact → instant 
 
 ## Acceptance criteria
 
-### Phase A — Prototype (`quizfunnel/prototype/`)
+### Phase A — Production UI (Illuminairy `/satplan`) — **source of truth**
 
-- [ ] `FunnelShell` + router + `sessionStorage` + step events (see `files/funnel-analysis.md`)
-- [ ] Landing CTA → assessment (no `alert()`)
+`quizfunnel/prototype/` is **deprecated** (Babel sketch only). Do not extend it.
+
+- [x] Route **`/satplan`** — Next.js App Router, build-time compile (`app/satplan/`, `components/sat-plan/`)
+- [x] `FunnelShell` + `QuizStepTemplate` + `FunnelCta` + `QuizTileGrid`
+- [x] Router + `sessionStorage` + `?step=` URLs (`lib/sat-plan-funnel/`)
+- [x] Landing + worries screens; PostHog + gtag on key events (`trackSatPlanFunnelEvent`)
+- [x] `noindex` until launch-ready (`app/satplan/layout.tsx`)
 - [ ] Contact screen: required parent email + phone, TCPA + privacy; optional student SMS
-- [ ] On contact success: `POST` stub or real API; **instant** report screen
-- [ ] Report: personalized blocks + share + primary “Book free 15-min SAT Improvement Plan review”
-- [ ] Calendly embed or deep link; confirmation when booked
-- [ ] PostHog + gtag via `trackFunnelEvent()` on all steps
-- [ ] Typography A/B toggle (Hanken vs Plus Jakarta) on one screen for decision
-- [ ] **Mobile-first:** base CSS for 320–430px; `min-width: 480px` enhancements only; 48px tap targets; safe areas; sticky quiz footer; QA Safari 390px + Chrome 360px
+- [ ] On contact success: `POST /api/funnel/lead`; **instant** report screen
+- [ ] Report + Calendly book step + confirmation
+- [ ] Typography A/B toggle (Hanken vs Plus Jakarta) if still needed
+- [ ] **Mobile-first QA:** 390×844 + Meta IAB; Lighthouse per `files/funnel-performance.md`
 
-### Phase B — Production (Illuminairy main repo)
+### Phase B — CRM & nurture
 
 - [ ] `POST /api/funnel/lead` → Supabase `leads` upsert + `onFunnelContactSubmitted`
-- [ ] Calendly webhook → `call_booked`, `Consultation Booked` Klaviyo + Meta schedule event only
-- [ ] Extend `lib/analytics-events.ts`; dual capture PostHog + GA4 `generate_lead` on contact
-- [ ] Route `/go/sat` (or agreed path); `noindex` until launch-ready
+- [ ] Calendly webhook → `call_booked`, Klaviyo + Meta schedule event only
 - [ ] Klaviyo flows: contact nurture + booked confirm (human UI)
-- [ ] `npm run agent:verify` on touched packages
 
 ### Phase C — Growth (after live)
 
@@ -41,8 +41,10 @@ Ship a measurable funnel: Meta LP → assessment → parent contact → instant 
 
 | Phase | Paths |
 |-------|--------|
-| Prototype | `quizfunnel/prototype/*`, `quizfunnel/files/funnel-analysis.md` |
-| Production | `app/(funnel)/`, `app/api/funnel/lead/`, `lib/crm/leads.ts`, `lib/klaviyo-server.ts` |
+| **Production UI** | Illuminairy: `app/satplan/`, `components/sat-plan/`, `lib/sat-plan-funnel/`, `app/satplan/funnel.css` |
+| Specs / copy | `quizfunnel/files/*`, `quizfunnel/specs/*` (this repo) |
+| Deprecated | `quizfunnel/prototype/` — do not ship |
+| CRM (later) | `app/api/funnel/lead/`, `lib/crm/leads.ts`, `lib/klaviyo-server.ts` |
 
 ## Env vars (Phase B)
 

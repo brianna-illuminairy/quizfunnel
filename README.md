@@ -1,6 +1,8 @@
-# Illuminairy SAT quiz funnel
+# Illuminairy SAT quiz funnel — specs & copy
 
-Mobile-first assessment funnel prototype (Meta LP → qualify → value → book call). Separate from the main [illuminairy.com](https://illuminairy.com) Next.js site; will port to production after screen-by-screen sign-off.
+**Live funnel:** [illuminairy.com/satplan](https://illuminairy.com/satplan) — built in the **Illuminairy** Next.js repo (`app/satplan/`, `components/sat-plan/`).
+
+This repo holds **PRDs, screen checklists, layout rules, and the deprecated Babel sketch** — not production code.
 
 ## Quick start (production — preferred)
 

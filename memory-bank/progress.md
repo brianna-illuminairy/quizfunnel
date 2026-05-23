@@ -13,12 +13,12 @@
 
 | Item | Status |
 |------|--------|
-| `FunnelShell` + router + sessionStorage | ✅ |
-| `QuizStepTemplate` + `FunnelCta` + `QuizTileGrid` | ✅ |
+| **Production `/satplan` (Illuminairy Next.js)** | ✅ Landing + worries |
+| `QuizStepTemplate` + components in `components/sat-plan/` | ✅ (main repo) |
 | Layout rules + component docs | ✅ |
-| GitHub repo | ✅ |
-| PostHog/GA4 in prototype (`analytics.js`) | ✅ Stub |
-| Next.js port + Supabase leads | ⬜ Phase B |
+| GitHub repo (this repo = specs) | ✅ |
+| Babel `prototype/` | ⛔ Deprecated — do not extend |
+| Supabase leads + full spine | ⬜ Phase B |
 
 ## Docs
 

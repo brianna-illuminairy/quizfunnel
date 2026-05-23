@@ -1,6 +1,6 @@
 ---
 name: SAT Quiz Funnel
-overview: "Hypothesis-driven SAT funnel: v4 + swipe-file patterns are inputs to test, not the build spec. Ship a measurable spine first (LP → qualify → value → convert), add length/pricing only when data supports; challenge every original assumption."
+overview: "Hypothesis-driven SAT funnel: v4 + swipe-file patterns are inputs to test, not the build spec. Production UI ships in Illuminairy Next.js at /satplan (not Babel prototype). This repo holds specs, copy, and screen checklists."
 todos:
   - id: screen-02-spec
     content: Finalize Screen 2 copy/UX (v4 Screen 1 multiselect) + typography A/B toggle plan
