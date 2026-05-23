@@ -1,0 +1,10 @@
+.DS_Store
+*.log
+.env
+.env.local
+
+# Local reference screenshots (large); keep in repo only if needed for design
+noomswipefiles/
+
+# Editor
+.cursor/

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>illuminairy — landing (iPhone)</title>
+
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700,800,900&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Hanken+Grotesk:wght@500;700;900&display=swap" rel="stylesheet" />
+
+<style>
+  html, body {
+    margin: 0; padding: 0; height: 100%;
+    background: #ebe7df;
+    font-family: "Switzer", system-ui, sans-serif;
+  }
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    box-sizing: border-box;
+  }
+  .stage {
+    position: relative;
+  }
+  .meta {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10.5px;
+    font-weight: 500;
+    color: rgba(10,10,10,0.55);
+    letter-spacing: 0.04em;
+  }
+  .meta b { color: #0a0a0a; font-weight: 600; }
+</style>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div class="meta"><b>illuminairy / landing</b> · iPhone 15 Pro · 393×852</div>
+
+<div id="root" class="stage"></div>
+
+<script>
+  /* Relay the tweaks-panel protocol between the host (parent) and the
+     Landing iframe inside this wrapper. The actual <TweaksPanel> lives
+     inside the iframe — this just bridges the postMessage hops so the
+     toolbar Tweaks toggle works. */
+  (function () {
+    const findFrame = () => document.querySelector("#root iframe");
+
+    // Iframe → parent (forward up)
+    window.addEventListener("message", (e) => {
+      const frame = findFrame();
+      if (!e.data || typeof e.data !== "object") return;
+      // From iframe: relay availability / dismissal / persistence to host
+      if (frame && e.source === frame.contentWindow) {
+        const t = e.data.type;
+        if (t === "__edit_mode_available" ||
+            t === "__edit_mode_dismissed"  ||
+            t === "__edit_mode_set_keys") {
+          window.parent.postMessage(e.data, "*");
+        }
+        return;
+      }
+      // From host: relay activate/deactivate down into the iframe
+      if (e.source === window.parent) {
+        const t = e.data.type;
+        if (t === "__activate_edit_mode" || t === "__deactivate_edit_mode") {
+          if (frame && frame.contentWindow) {
+            frame.contentWindow.postMessage(e.data, "*");
+          }
+        }
+      }
+    });
+  })();
+</script>
+
+<script type="text/babel" src="ios-frame.jsx"></script>
+<script type="text/babel">
+  function PhonePreview() {
+    return (
+      <IOSDevice width={393} height={852}>
+        <iframe
+          src="Landing.html"
+          title="Landing"
+          style={{
+            width: "100%",
+            height: "100%",
+            border: 0,
+            display: "block",
+            background: "#fff"
+          }}
+        ></iframe>
+      </IOSDevice>
+    );
+  }
+  const root = ReactDOM.createRoot(document.getElementById("root"));
+  root.render(<PhonePreview />);
+</script>
+
+</body>
+</html>
