@@ -2,19 +2,25 @@
 
 Mobile-first assessment funnel prototype (Meta LP → qualify → value → book call). Separate from the main [illuminairy.com](https://illuminairy.com) Next.js site; will port to production after screen-by-screen sign-off.
 
-## Quick start
+## Quick start (production — preferred)
+
+In the **illuminairy** main repo:
 
 ```bash
-cd prototype
-python3 -m http.server 8765
+npm run dev
 ```
 
-Open **http://localhost:8765/Landing.html** (use port `8765` and `http://`, not `file://`).
+Open **http://localhost:3000/satplan** (landing) and **http://localhost:3000/satplan?step=worries**.
 
-| Step | URL |
-|------|-----|
-| Landing | `Landing.html` |
-| Screen 1 — worries | `Landing.html?step=worries` |
+Live path after deploy: **https://illuminairy.com/satplan**
+
+## Legacy prototype (reference only)
+
+```bash
+cd prototype && python3 -m http.server 8765
+```
+
+Do not add new screens to the Babel prototype — build on `/satplan` in Next.js.
 
 ## Repo layout
 

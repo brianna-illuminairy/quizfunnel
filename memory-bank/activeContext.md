@@ -4,9 +4,10 @@
 
 ## Current focus
 
-- **Screen 01 — Worries** (`?step=worries`) — in review (visual sign-off on device + Meta IAB)
-- **Next:** Screen 02 (Chapter 1 / v4 flow) after Screen 01 approved
-- **Repo:** Pushed to [github.com/brianna-illuminairy/quizfunnel](https://github.com/brianna-illuminairy/quizfunnel)
+- **Production funnel:** `illuminairy.com/satplan` — Next.js in main repo (`app/satplan/`, `components/sat-plan/`)
+- **Screen 01 — Worries** — `/satplan?step=worries` (same UI as prototype; built for speed)
+- **Prototype** (`prototype/`) — reference only; do not add new screens there
+- **Next:** Screen 02 after Screen 01 sign-off on `/satplan`
 
 ## Recent changes
 
