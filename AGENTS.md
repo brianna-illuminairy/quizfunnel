@@ -16,6 +16,7 @@ Instructions for AI assistants working in **this repository** (SAT quiz funnel p
 | [`memory-bank/progress.md`](memory-bank/progress.md) | Done / backlog |
 | [`specs/ACTIVE.md`](specs/ACTIVE.md) | Active spec path |
 | [`files/funnel-layout-rules.md`](files/funnel-layout-rules.md) | Non-negotiable layout (CTA, column, safe areas) |
+| [`files/funnel-performance.md`](files/funnel-performance.md) | Load times, Lighthouse gates, CWV budgets |
 | [`files/quiz-step-template.md`](files/quiz-step-template.md) | Reusable components — **use for every new quiz step** |
 | [`PLAN-sat-funnel.md`](PLAN-sat-funnel.md) | Full screen list + hypotheses |
 

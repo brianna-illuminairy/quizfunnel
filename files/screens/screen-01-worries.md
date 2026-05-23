@@ -5,6 +5,15 @@
 **Design ref:** `Downloads/screen-2/Screen 2.html`  
 **Layout rules:** [`files/funnel-layout-rules.md`](../funnel-layout-rules.md) — **read before changing CSS**
 
+## Performance
+
+See [`../funnel-performance.md`](../funnel-performance.md).
+
+- [ ] Lighthouse mobile (Slow 4G): LCP ≤ 2.5s, CLS ≤ 0.1 on `Landing.html?step=worries`
+- [ ] Step transition from landing feels instant (no blank shell)
+- [ ] Meta IAB smoke: IG + FB in-app browser, 390×844
+- [ ] Baseline row in [`../research/perf-baseline-2026-05-23.md`](../research/perf-baseline-2026-05-23.md)
+
 ## Must-haves (do not ship without)
 
 1. **Continue CTA always visible** — sticky footer in viewport (`funnel-shell--quiz`). See layout rules §1.

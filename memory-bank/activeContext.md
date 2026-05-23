@@ -22,6 +22,7 @@
 ## Open
 
 - [ ] Screen 01 sign-off (iPhone + IG/FB in-app browser)
+- [ ] Fill Lighthouse scores in `files/research/perf-baseline-2026-05-23.md`
 - [ ] Typography A/B (Hanken vs Plus Jakarta) when building Screen 02
 - [ ] Update `PLAN-sat-funnel.md` todo statuses after each screen ships
 

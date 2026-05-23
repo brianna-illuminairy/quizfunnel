@@ -26,6 +26,27 @@ todos:
   - id: funnel-metrics-schema
     content: Dual instrumentation — PostHog + GA4 on every funnel step (see funnel-analysis.md)
     status: pending
+  - id: perf-playbook
+    content: Performance playbook — budgets, Lighthouse gates, IAB speed checks (files/funnel-performance.md)
+    status: completed
+  - id: perf-baseline-landing
+    content: Run Lighthouse mobile on LP + worries; record in files/research/perf-baseline-2026-05-23.md
+    status: pending
+  - id: perf-screen-gate
+    content: Add perf checklist to each files/screens/screen-NN.md per funnel-performance.md
+    status: pending
+  - id: perf-prototype-audit
+    content: Document unpkg React+Babel cost; no new blocking scripts without defer on prototype
+    status: pending
+  - id: perf-step-transitions
+    content: Verify SPA step changes <100ms perceived; no layout thrash on footer sticky
+    status: pending
+  - id: rum-web-vitals
+    content: Next.js port — web-vitals → PostHog/GA4; Vercel Speed Insights on funnel route
+    status: pending
+  - id: perf-lighthouse-ci
+    content: Optional CI — Lighthouse mobile on staging /go URL before Meta spend scales
+    status: pending
   - id: analytics-events-extend
     content: Extend lib/analytics-events.ts + capture helper for new funnel events on Next.js port
     status: pending
@@ -96,6 +117,7 @@ isProject: false
 | **This file** | Full synthesis + screen map (reference) |
 | **Tooling matrix** | [`specs/AGENT-TOOLING.md`](specs/AGENT-TOOLING.md) |
 | **Funnel ops metrics** | [`files/funnel-analysis.md`](files/funnel-analysis.md) |
+| **Performance & load times** | [`files/funnel-performance.md`](files/funnel-performance.md) |
 
 **Rule:** Change PRD/SPEC first for product decisions; update this PLAN for narrative/architecture; implement only what SPEC lists.
 
@@ -263,7 +285,43 @@ SMS still wins later for **retargeting** people who viewed the report and bounce
 
 **Goal:** When the funnel is live, you can see **which scenario** you’re in and **what to change** — not guess from vanity CPL.
 
-**Living playbook:** `[files/funnel-analysis.md](files/funnel-analysis.md)` — step definitions, conversion formulas, scenario matrix, weekly review checklist. Update thresholds after ~500 sessions per step (baselines).
+**Living playbooks:**
+
+| Playbook | Covers |
+|----------|--------|
+| [`files/funnel-analysis.md`](files/funnel-analysis.md) | Events, conversion formulas, scenario matrix, weekly ops review |
+| [`files/funnel-performance.md`](files/funnel-performance.md) | **Speed tests, load times, CWV budgets**, lab + device gates, RUM |
+
+Update conversion thresholds after ~500 sessions per step; update perf baselines when LP/global CSS/scripts change.
+
+### Performance, speed tests & load times
+
+Meta LP bounce is often **speed + IAB**, not copy. Treat performance like instrumentation — defined before scale.
+
+**Budgets (mobile, production):** LCP ≤ **2.5s**, INP ≤ **200ms**, CLS ≤ **0.1**, LP interactive ≤ **3.5s** on Slow 4G. Full table + tools: [`files/funnel-performance.md`](files/funnel-performance.md).
+
+| Phase | What to run |
+|-------|-------------|
+| **Each screen sign-off** | Lighthouse mobile on `Landing.html` + new `?step=` URL; perf section in `files/screens/screen-NN-….md` |
+| **Before Meta spend** | Real device: Instagram + Facebook IAB cold open; fill [`files/research/perf-baseline-YYYY-MM-DD.md`](files/research/perf-baseline-2026-05-23.md) |
+| **Prototype (now)** | Regression checks only — unpkg React+Babel is **dev-only**, not a ship budget |
+| **Next.js port** | No in-browser Babel; `next/font` + `next/image`; defer analytics; Calendly lazy; Vercel Speed Insights |
+| **Live (weekly)** | GA4 LP bounce vs step depth; PostHog web vitals (optional); Meta LP CTR anomalies |
+
+**Speed test stack:**
+
+| Tool | Use |
+|------|-----|
+| Chrome **Lighthouse** (mobile, Slow 4G) | Lab LCP/INP/CLS per screen — default gate |
+| **WebPageTest** | Staging TTFB + filmstrip before launch |
+| **DevTools Network** | Transfer size, blocking scripts, font waterfall |
+| **Meta IAB on iPhone** | Real-world cold load (pairs with [`meta-in-app-browser-qa.md`](files/research/meta-in-app-browser-qa.md)) |
+| **Vercel Speed Insights** | Field CWV on production `/go/…` |
+| **Lighthouse CI** (optional) | Block deploy if LP LCP regresses |
+
+**RUM (Next.js):** `web-vitals` → same `trackFunnelEvent` / GA4 as conversion events; sample `funnel_step_timing` in dev if step transitions regress.
+
+**Diagnostic link:** High LP views + low `funnel_cta_click` → check LCP and IAB layout before rewriting headline ([`funnel-performance.md` § Diagnostics](files/funnel-performance.md)).
 
 ### Analytics — PostHog + Google Analytics (dual instrument)
 
@@ -277,12 +335,13 @@ SMS still wins later for **retargeting** people who viewed the report and bounce
 | **Meta pixel** | **Bookings only** — not contact submit                                     | Calendly thank-you / `consult_booked`                                                                                                                            |
 
 
-**Prototype (`New Funnel for Illuminairy/`):**
+**Prototype (`prototype/`):**
 
-- Add `analytics.js` with `trackFunnelEvent(name, props)` → `posthog.capture` + `gtag('event', …)`.
+- `analytics.js` with `trackFunnelEvent(name, props)` → `posthog.capture` + `gtag('event', …)` (stub today).
 - Load PostHog init (use `NEXT_PUBLIC_POSTHOG_KEY` from `.env` when testing locally; document in `.env.example`).
 - Load GA4 gtag on `Landing.html` + funnel pages (same measurement ID as main site **or** separate GA4 property for `/go/sat` — decide before spend; separate property keeps funnel clean).
 - Manual `$pageview` / `page_view` on step changes if SPA router (no full page reload).
+- **Defer** analytics scripts until after first paint when wiring for real (see [`funnel-performance.md`](files/funnel-performance.md)).
 
 **Next.js port:**
 
@@ -1087,7 +1146,13 @@ Cross-check against [SAT funnel PRD](specs/2026-05-sat-funnel/PRD.md), [premium 
 | Mobile 390px first              | Green  | Screen-by-screen review                                                     |
 | Tap targets ≥44px               | Amber  | Spec in `FunnelShell` / option cards                                        |
 | Focus states + labels           | Amber  | Especially multiselect chips and phone input                                |
-| LP performance (LCP)            | Amber  | Score card images/animations — lazy-load or reduce motion if LCP above 2.5s |
+| LP performance (LCP)            | Amber  | Budget ≤2.5s — [`funnel-performance.md`](files/funnel-performance.md); lazy images, reduce motion |
+| Speed test per screen           | Amber  | Lighthouse mobile gate on each `files/screens/screen-NN.md` approval          |
+| Meta IAB load time              | Amber  | Cold open IG/FB apps before scaling spend                                     |
+| Prototype script weight         | Green  | Documented: unpkg React+Babel dev-only; production = Next bundle              |
+| Step transition latency         | Amber  | SPA `?step=` — no blank shell; profile in Performance panel                   |
+| RUM / Web Vitals                | Amber  | `web-vitals` + PostHog/GA4 on Next port; Vercel Speed Insights               |
+| Lighthouse CI (staging)         | Amber  | Optional gate before Meta budget increases                                    |
 | `noindex` on funnel until ready | Amber  | Add to Next.js migration checklist                                          |
 | Disable double-submit           | Amber  | Phone + enroll buttons: loading state + idempotency on API                  |
 
