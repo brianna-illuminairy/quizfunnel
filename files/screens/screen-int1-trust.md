@@ -1,6 +1,6 @@
 # Screen — You’re in good hands *(INT1)*
 
-**Status:** Spec draft  
+**Status:** Built in Illuminairy (`?step=trust`) — 2026-05-23  
 **Placement:** After `who` + `target` — seq **4** · `?step=trust`  
 **Interstitial:** [`INT1`](../funnel-interstitials-noom-map.md)
 

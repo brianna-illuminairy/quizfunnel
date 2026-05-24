@@ -5,7 +5,7 @@
 ## Current focus
 
 - **Master flow:** [`files/FUNNEL-MASTER-FLOW.md`](../files/FUNNEL-MASTER-FLOW.md) — **one Q or one I per screen**; insight **immediately after** triggering Q; **never I→I**
-- **Screen 01** worries ✅ · **Screen 02** Who ✅ · **Screen 03** target ✅ (Illuminairy) · **Screen 04** INT1 trust ⬜ next
+- **Screen 01** worries ✅ · **Screen 02** Who ✅ · **Screen 03** target ✅ · **INT1** trust ✅ (Illuminairy) · **Screen 04** test history ⬜ next
 - Old model “all questions then all interstitials” — **rejected**
 
 ## Recent changes
