@@ -14,7 +14,7 @@
 | **Goal before current score** | Target score (Step 3) **before** test history and recent score. Pain → who → **goal** → diagnosis. Do not reorder to “current first.” |
 | **Goal-first rationale** | Meta / Heyflow-style funnels perform when the path feels **goal-oriented**. Pain (Step 1) opens the conversation; target (Step 3) **locks an aspirational number** so later questions read as *“how do we get there?”* not *“rate where you are.”* |
 | **What went wrong** | v4 **multiselect only** — no follow-up “main reason” screen (extra tap, minimal lift for interstitials). |
-| **How they prepped** | **Single-select** — main prep method only, not multi. |
+| **How they prepped** | **Multiselect** — select all that apply; enabled Continue. |
 | **Test date** | **Not sure yet** + **date-aware upcoming list**; **Not planning** = same funnel, **report tone variant** (exploratory anchor + optional call, not hard sell). |
 | **Grouping** | One question per funnel step — no combined URLs. |
 | **Insight placement** | **Reactive co-mix** ([`FUNNEL-MASTER-FLOW.md`](FUNNEL-MASTER-FLOW.md)) — one Q **or** one I per screen. When an answer unlocks an aha, **next screen** is that I (e.g. GPA → smart-kid I; prep Khan → 2-sigma I; test date → timeline I). **Never** stack multiple I screens after several Q screens. |
@@ -83,18 +83,18 @@ Pronoun after Step 2: *she* / *he* / *you* / *they*.
 
 **Shown only if** Step 4 ≠ `history_none`.
 
-**How did {subject} prepare last time?** *(single select · auto-advance)*  
-*Main prep method only — not multiselect.*
+**How did {subject} prepare last time?** *(multiselect · enabled Continue)*  
+*Select all that apply — e.g. Khan plus a tutor.*
 
 | Option | `id` |
 |--------|------|
 | Khan Academy | `prep_khan` |
-| A tutor | `prep_tutor` |
-| A prep class | `prep_class` |
-| Books / practice tests | `prep_books` |
-| An app (other than Khan) | `prep_app_other` |
-| On their own / nothing | `prep_own_nothing` |
+| Bluebook | `prep_bluebook` |
+| YouTube | `prep_youtube` |
+| Group class in person | `prep_class` |
+| An app | `prep_app` |
 | Not sure | `prep_not_sure` |
+| Didn't prepare | `prep_didnt_prepare` |
 
 ---
 
@@ -289,7 +289,7 @@ I: inserted between Q rows per master flow (e.g. INT1 after Target, INT8 after P
 |------|--------|
 | Child’s first name | No early typing; pronouns from Step 2 |
 | “Main reason” follow-up after what went wrong | Extra tap; multiselect enough for interstitials |
-| Prep multiselect | Slows tap rhythm; single main method |
+| Prep multiselect | ~~Slows tap rhythm; single main method~~ → **multiselect** with Continue (2026-05) |
 | Grouped screens | One question per step |
 | School tier pick (for now) | Parents may not know buckets |
 

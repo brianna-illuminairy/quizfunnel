@@ -1,35 +1,56 @@
-# Progress — SAT quiz funnel prototype
+# Progress — SAT quiz funnel
 
-## Build queue (co-mixed seq order)
+*Illuminairy `/satplan` = production. This repo = specs + copy.*
 
-See [`files/FUNNEL-MASTER-FLOW.md`](../files/FUNNEL-MASTER-FLOW.md) for full spine.
+## Build queue (reactive spine)
 
-| Seq | Type | Beat | Status |
+See [`files/FUNNEL-MASTER-FLOW.md`](../files/FUNNEL-MASTER-FLOW.md).
+
+| Seq | Type | Step | Status |
 |-----|------|------|--------|
+| — | LP | Landing | ✅ |
 | 1 | Q | Worries | ✅ |
 | 2 | Q | Who | ✅ |
 | 3 | Q | Target | ✅ |
-| 4 | I | INT1 trust | ⬜ next |
-| 5+ | Q/I | … per master flow | ⬜ |
+| 4 | I | INT1 trust | ✅ |
+| 5 | Q | History | ✅ |
+| — | I | INT3 retake | ✅ (twice+) |
+| 6 | Q | Prep | ✅ |
+| 7 | I | INT8 | ✅ (stub + 4-beat trilogy for `prep_class`) |
+| 8 | Q | GPA | ✅ |
+| 9 | Q | hours, score | ✅ (tested path) |
+| 10 | Q | test-date | ✅ |
+| — | Q/I stubs | wrong, INT2, INT6×2, schools, contact, report, book | 🔄 placeholders (E2E wired) |
 
-**MVP shortcut:** still co-mixed — INT1 early, INT8 after prep (tested), INT6 before contact.
+## INT8 detail (shipped 2026-05-24)
+
+| Step | `?step=` | Status |
+|------|----------|--------|
+| Stub (self-study / single beat) | `prep-failed-stub` | ✅ |
+| Plateau + triptych | `prep-failed-plateau` | ✅ |
+| Proof + Bloom + bars | `prep-failed-proof` | ✅ |
+| Famous mentors | `prep-failed-mentors` | ✅ |
+| Guided plan | `prep-failed-guided` | ✅ |
+
+**Assets:** `public/satplan/int8/prep-paths-triptych-daughter.png` (daughter + Me); default strip for son/other.
 
 ## Infrastructure
 
 | Item | Status |
 |------|--------|
-| **Production `/satplan` (Illuminairy Next.js)** | ✅ Landing + worries |
-| `QuizStepTemplate` + components in `components/sat-plan/` | ✅ (main repo) |
-| Layout rules + component docs | ✅ |
-| GitHub repo (this repo = specs) | ✅ |
-| Babel `prototype/` | ⛔ Deprecated — do not extend |
-| Supabase leads + full spine | ⬜ Phase B |
+| Production `/satplan` (Illuminairy Next.js) | ✅ spine through INT8 |
+| `QuizStepTemplate` + sat-plan components | ✅ Illuminairy |
+| `ContrastBarChart`, triptych, mentorship splash | ✅ |
+| Layout + contrast asset docs | ✅ |
+| Babel `prototype/` | ⛔ Deprecated |
+| Supabase leads + contact/report/book | ⬜ Phase B |
 
 ## Docs
 
 | Doc | Status |
 |-----|--------|
-| PRD + SPEC in `specs/sat-quiz-funnel/` | ✅ |
-| `files/funnel-layout-rules.md` | ✅ |
-| `files/quiz-step-template.md` | ✅ |
-| Per-screen checklists `files/screens/` | ✅ 00–03; **INT1** spec ready |
+| PRD + SPEC | ✅ — needs Phase A checklist sync (done 2026-05-24) |
+| `files/funnel-layout-rules.md` | ✅ §4 contrast map |
+| `files/funnel-contrast-assets.md` | ✅ |
+| `files/screens/screen-int8-prep-class.md` | 🔄 partial sync with production |
+| Per-screen 00–05 + INT1/INT3 | ✅ checklists exist |

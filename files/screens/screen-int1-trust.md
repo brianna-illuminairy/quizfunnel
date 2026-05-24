@@ -106,4 +106,4 @@ Use **highest-priority checked** id only. If **none** or multiselect without cle
 - [ ] `[target band]` required  
 - [ ] `[pain_clause]` only from checked `worries[]` ids  
 - [ ] `stuck_score` = **planning retake**, never “score wouldn’t budge” on INT1  
-- [ ] INT3 (“retook without changing approach”) only after **history** confirms prior sittings  
+- [ ] INT3 (“retook without changing approach”) only after **history** confirms prior SAT attempts  

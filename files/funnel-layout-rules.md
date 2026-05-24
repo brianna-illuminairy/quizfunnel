@@ -64,7 +64,26 @@ Reference: `Downloads/screen-2/Screen 2.html`
 
 ---
 
-## 4. Do not regress
+## 4. Contrast visuals (interstitials)
+
+When a beat compares **two prep paths**, **formats**, or **outcomes**, prefer a **visual** over prose stats:
+
+| Pattern | Component (Illuminairy) | Beats |
+|---------|------------------------|-------|
+| **Prep path story** | `Int8PrepPathTriptych` — crop home / crowd / mentorship | INT8 plateau |
+| **Famous pairs reveal** | `Int8MentorshipSplash` — tap pairs → common thread | INT8 `prep-failed-mentors` |
+| **Point gain bars** | `ContrastBarChart` — low vs high bar, values on top | INT3 retake, INT8 proof |
+| **Program proof** | `Int1TrustGraphic` — metrics + ring | INT1 trust |
+| **Format split** | Side-by-side (laptop UI vs paper book) | INT12 `sat-changed` *(planned)* |
+| **GPA vs SAT** | Split cards or meter *(planned)* | INT2 `gpa-paradox` *(planned)* |
+
+**Rule:** One visual earns **one aha** — copy underneath adds SAT-specific detail; do not repeat the number the chart already shows.
+
+**Raster sizes:** See [`funnel-contrast-assets.md`](funnel-contrast-assets.md) — single panels **680×510 px** (4:3 @2x), one PNG per contrast.
+
+---
+
+## 5. Do not regress
 
 - No `overflow-y: auto` on quiz steps.
 - No sticky / viewport-bottom Continue.

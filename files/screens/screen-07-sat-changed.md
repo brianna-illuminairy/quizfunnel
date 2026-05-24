@@ -54,7 +54,7 @@
 
 ## UI / layout
 
-- [ ] Noom-style **education interstitial** — centered copy, optional split visual (laptop SAT UI vs pencil + book)
+- [x] Noom-style **education interstitial** — centered copy + **`Int12FormatContrast`** (`digital-vs-paper-prep.png`, 680×510 @2x)
 - [ ] Progress chapter: **CHAPTER 2 · WHY PRIOR PREP STALLED** (or 2-chapter collapse: “Why the score happened”)
 - [ ] `education_part: b` + `interstitial_id: int12_digital` analytics
 - [ ] Feature flag: `ch1_digital_format`

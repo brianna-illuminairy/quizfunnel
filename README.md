@@ -1,20 +1,20 @@
 # Illuminairy SAT quiz funnel — specs & copy
 
-**Live funnel:** [illuminairy.com/satplan](https://illuminairy.com/satplan) — built in the **Illuminairy** Next.js repo (`app/satplan/`, `components/sat-plan/`).
+**Live funnel:** [illuminairy.com/satplan](https://illuminairy.com/satplan) — built in the **Illuminairy** Next.js repo (`app/satplan/`, `components/sat-plan/`, `lib/sat-plan-funnel/`).
 
 This repo holds **PRDs, screen checklists, layout rules, and the deprecated Babel sketch** — not production code.
 
-## Quick start (production — preferred)
+## Quick start (production)
 
-In the **illuminairy** main repo:
+In the **Illuminairy** repo:
 
 ```bash
 npm run dev
 ```
 
-Open **http://localhost:3000/satplan** (landing) and **http://localhost:3000/satplan?step=worries**.
+Open **http://localhost:3000/satplan** and deep-link steps, e.g. **http://localhost:3000/satplan?step=prep-failed-plateau**.
 
-Live path after deploy: **https://illuminairy.com/satplan**
+After deploy: **https://illuminairy.com/satplan**
 
 ## Legacy prototype (reference only)
 
@@ -22,45 +22,47 @@ Live path after deploy: **https://illuminairy.com/satplan**
 cd prototype && python3 -m http.server 8765
 ```
 
-Do not add new screens to the Babel prototype — build on `/satplan` in Next.js.
+Do **not** add new screens to the Babel prototype — build on `/satplan` in Next.js. See [`prototype/DEPRECATED.md`](prototype/DEPRECATED.md).
 
 ## Repo layout
 
 | Path | Purpose |
 |------|---------|
-| [`prototype/`](prototype/) | Runnable HTML + React (Babel) app — **source of truth for UI** |
-| [`files/`](files/) | Layout rules, screen checklists, brand/funnel copy |
+| [`files/`](files/) | Layout rules, screen checklists, contrast asset specs, master flow |
 | [`specs/`](specs/) | PRD, SPEC, `ACTIVE.md`, Ralph plan |
 | [`memory-bank/`](memory-bank/) | Session context for agents |
 | [`PLAN-sat-funnel.md`](PLAN-sat-funnel.md) | Master plan + screen inventory |
-| [`noomswipefiles/`](noomswipefiles/) | Local-only reference screenshots (gitignored) |
+| [`prototype/`](prototype/) | Deprecated Babel sketch |
 
-## Design system (prototype)
-
-Reusable components — **screens only swap content in slots**:
-
-| Component | File |
-|-----------|------|
-| `FunnelCta` | `prototype/funnel-cta.jsx` |
-| `FunnelShell` | `prototype/funnel-shell.jsx` |
-| `QuizStepTemplate` | `prototype/quiz-step-template.jsx` |
-| `QuizTileGrid` | `prototype/quiz-tile-grid.jsx` |
-
-Docs: [`files/quiz-step-template.md`](files/quiz-step-template.md), [`files/funnel-layout-rules.md`](files/funnel-layout-rules.md).
+Production components live in Illuminairy: `components/sat-plan/` (`QuizStepTemplate`, `ContrastBarChart`, `Int8PrepPathTriptych`, etc.). Docs: [`files/quiz-step-template.md`](files/quiz-step-template.md), [`files/funnel-layout-rules.md`](files/funnel-layout-rules.md), [`files/funnel-contrast-assets.md`](files/funnel-contrast-assets.md).
 
 ## Agents
 
 Read [`AGENTS.md`](AGENTS.md) and [`memory-bank/activeContext.md`](memory-bank/activeContext.md) at session start.
 
-## Screen status
+## Production screen status (Illuminairy `/satplan`)
 
-| Screen | Status |
-|--------|--------|
-| 00 Landing | Approved |
-| 01 Worries | In review |
-| 02+ | Not built — see `PLAN-sat-funnel.md` |
+| Step | `?step=` | Status |
+|------|----------|--------|
+| Landing | *(none)* | ✅ |
+| Worries | `worries` | ✅ |
+| Who | `who` | ✅ |
+| Target | `target` | ✅ |
+| INT1 trust | `trust` | ✅ |
+| Test history | `history` | ✅ |
+| INT3 retake | `int3-retake` | ✅ (`history_twice` / `history_three_plus`) |
+| Prep | `prep` | ✅ |
+| INT8 stub | `prep-failed-stub` | ✅ (self-study / non-trilogy paths) |
+| INT8 plateau | `prep-failed-plateau` | ✅ (`prep_class` trilogy) |
+| INT8 proof | `prep-failed-proof` | ✅ (+ Bloom sentence, bar chart) |
+| INT8 mentors | `prep-failed-mentors` | ✅ (tap-through pairs) |
+| INT8 guided | `prep-failed-guided` | ✅ |
+| GPA | `gpa-stub` | ⬜ placeholder |
+| Hours, score, wrong, INT2, INT6, contact, report | … | ⬜ not built |
+
+Full spine map: [`files/FUNNEL-MASTER-FLOW.md`](files/FUNNEL-MASTER-FLOW.md).
 
 ## Related
 
-- Production site repo: `illuminairy` (Zytech / illuminairy.com)
-- Active spec: [`specs/ACTIVE.md`](specs/ACTIVE.md)
+- Production code: Illuminairy repo (`/satplan`)
+- Active spec: [`specs/ACTIVE.md`](specs/ACTIVE.md) → [`specs/sat-quiz-funnel/SPEC.md`](specs/sat-quiz-funnel/SPEC.md)

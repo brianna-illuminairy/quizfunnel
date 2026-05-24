@@ -1,8 +1,8 @@
 # PRD: SAT quiz funnel (Meta → consult)
 
 - **Author:** Brianna / Illuminairy
-- **Date:** 2026-05-23
-- **Status:** approved (prototype phase)
+- **Date:** 2026-05-24
+- **Status:** in progress (production `/satplan` spine through INT8)
 - **Full plan:** [`../../PLAN-sat-funnel.md`](../../PLAN-sat-funnel.md)
 - **Ops playbook:** [`../../files/funnel-analysis.md`](../../files/funnel-analysis.md)
 
@@ -66,17 +66,18 @@ Leading indicators: `contact_submit`, `report_view`, `report → calendly_open`.
 
 ### In scope (v1)
 
-- Prototype in `quizfunnel/New Funnel for Illuminairy/` through book-call + confirmation  
+- **Production** at Illuminairy `/satplan` through assessment spine → contact → on-screen report → book call  
 - Flow: assessment → **contact** → **on-screen report** → book call (may leave)  
 - CRM: Supabase `leads`, Klaviyo profile + `SAT Funnel Contact` event  
 - Analytics: PostHog + GA4; Meta pixel **bookings only**  
-- Port to Next.js `/go/sat` when spine validates  
+- Reactive interstitials (INT1, INT3, INT8 trilogy, etc.) per [`FUNNEL-MASTER-FLOW.md`](../../files/FUNNEL-MASTER-FLOW.md)  
 
 ### Out of scope (v1)
 
 - Ecommerce checkout on funnel  
 - Full v4 interstitial arc unless drop-off data requires it  
 - National ads before Georgia message-match QA  
+- Babel `quizfunnel/prototype/` — deprecated, not shipped  
 
 ## Brand / legal
 
@@ -89,3 +90,4 @@ Leading indicators: `contact_submit`, `report_view`, `report → calendly_open`.
 
 - Default assessment path: **spine** vs full v4 (default **spine**; see PLAN)  
 - GA4: same property vs funnel-only property  
+- Son/neutral triptych art vs reusing daughter strip for all paths until art is ready  

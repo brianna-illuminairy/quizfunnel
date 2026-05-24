@@ -1,7 +1,7 @@
 # SPEC: SAT quiz funnel (production at `/satplan`)
 
 - **PRD:** [PRD.md](./PRD.md)
-- **Date:** 2026-05-23
+- **Date:** 2026-05-24
 - **Implementation plan:** [../../PLAN-sat-funnel.md](../../PLAN-sat-funnel.md)
 
 ## Summary
@@ -18,7 +18,13 @@ Ship a measurable funnel: Meta LP → assessment → parent contact → instant 
 - [x] `FunnelShell` + `QuizStepTemplate` + `FunnelCta` + `QuizTileGrid`
 - [x] Router + `sessionStorage` + `?step=` URLs (`lib/sat-plan-funnel/`)
 - [x] Landing + worries screens; PostHog + gtag on key events (`trackSatPlanFunnelEvent`)
+- [x] Who, target, INT1 trust, history, INT3 retake (conditional), prep
+- [x] INT8 prep comparison — stub + 4-beat trilogy for `prep_class` (plateau, proof, mentors, guided)
+- [x] Contrast visuals: triptych (girl variant for daughter/Me), `ContrastBarChart`, mentorship splash
+- [x] `history_none` → INT8 stub (skip prep) → GPA stub
 - [x] `noindex` until launch-ready (`app/satplan/layout.tsx`)
+- [ ] GPA question (real screen) + INT2 GPA paradox
+- [ ] Hours, score, wrong questions
 - [ ] Contact screen: required parent email + phone, TCPA + privacy; optional student SMS
 - [ ] On contact success: `POST /api/funnel/lead`; **instant** report screen
 - [ ] Report + Calendly book step + confirmation
@@ -41,7 +47,7 @@ Ship a measurable funnel: Meta LP → assessment → parent contact → instant 
 
 | Phase | Paths |
 |-------|--------|
-| **Production UI** | Illuminairy: `app/satplan/`, `components/sat-plan/`, `lib/sat-plan-funnel/`, `app/satplan/funnel.css` |
+| **Production UI** | Illuminairy: `app/satplan/`, `components/sat-plan/`, `lib/sat-plan-funnel/`, `app/satplan/funnel.css`, `public/satplan/int8/` |
 | Specs / copy | `quizfunnel/files/*`, `quizfunnel/specs/*` (this repo) |
 | Deprecated | `quizfunnel/prototype/` — do not ship |
 | CRM (later) | `app/api/funnel/lead/`, `lib/crm/leads.ts`, `lib/klaviyo-server.ts` |
@@ -58,7 +64,7 @@ Ship a measurable funnel: Meta LP → assessment → parent contact → instant 
 
 ## QA checklist
 
-- [ ] Full path: LP → contact → report visible <1s → book → confirm
+- [ ] Full path through INT8 trilogy (390×844, no scroll); daughter/Me shows girl triptych
 - [ ] Lead row in Supabase; profile in Klaviyo
 - [ ] No `Lead` event to Meta on contact; booking event fires on Calendly
 - [ ] Banned phrases scan on new copy

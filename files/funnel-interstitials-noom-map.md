@@ -313,7 +313,26 @@ flowchart TD
 
 ---
 
-### INT8 — Self-study and group class fail (generic prep)
+### INT8 — Prep comparison (self-study vs guided 1:1)
+
+**Production (2026-05-23):** Simplified from long per-method blocks → **Noom-style comparison bar** at `prep-failed-stub`:
+
+| Anchor | Source | Value |
+|--------|--------|-------|
+| Self-study alone | College Board retake research (`satRetakeResearch`) | **~40 pts** avg without new approach |
+| Guided 1:1 | Illuminairy completers (`satProgramOutcomes`) | **182 pts** avg |
+| Headline ratio | 182 ÷ 40 | **4.6×** (one decimal) |
+| Bloom 2-sigma | Footnote only — **mechanism**, not proof of 182 | ~98th percentile vs classroom |
+
+**Copy beats:** (1) mirror `prep_*` selection in one line; (2) bar graphic; (3) stat sentence; (4) Bloom footnote; (5) dual-source footnote + “Results vary.”
+
+**Do not** claim Bloom proves 182 — different studies, different cohorts.
+
+**Legacy spec below** — per-method limitation essays (`prep_class`, `prep_tutor`) deferred; fold strongest lines into mirror only if needed later.
+
+---
+
+### INT8 (legacy) — Self-study and group class fail (generic prep)
 
 **Narrative job (Act 3a):** Explain **why common approaches often plateau** — not laziness or bad parenting, but **missing structure**: diagnostic, plan, Digital reps, visibility between sessions. **Tone:** curious and factual; validate prior choices.
 
@@ -584,18 +603,22 @@ Our mentors **took the Digital SAT** and meet a high score bar *(align copy with
 
 ---
 
-### INT3 — Retake reality (points gained so far)
+### INT3 — Retake reality (not hopeless)
+
+**Purpose:** **Authority** + **Aha** + **Trust** (education **B**) — explain why prior attempts stalled **without** making the retake feel pointless.
 
 **Limitation:** Intake does **not** capture first vs second score — use **benchmark + mirror**, not fake personalization.
 
-**Trigger:** `history_twice` \| `history_three_plus` only *(past sittings — not `stuck_score` worry, which means **planning** a retake on INT1)*
+**Trigger:** `history_twice` \| `history_three_plus` only *(prior SAT attempts — not `stuck_score` worry, which means **planning** a retake on INT1)*
 
-**Headline (if stuck):** “Retaking without changing *how* they prep rarely moves the needle.”
+**Headline:** “A new approach to the SAT, not just another retake.”
 
-**Body:**
-- College Board / research anchor: students who retake **without changing approach** gain **~40 points on average** (verify cite; v4 uses this).
-- If they’ve taken it [twice / 3+ times] and the score band hasn’t moved, that pattern is **common** — it usually means prep wasn’t targeting **their** weaknesses.
-- **Illuminairy starts with a diagnostic** so effort goes to what actually costs points.
+**Body (intro + chart + tutor paragraph):**
+1. **Intro (above chart)** — College Board **250,000+** retakers, ~**40** pt avg on retest; most kids/students rely on videos + practice problems, which isn’t very effective.
+2. **Chart** — same ~**40** vs guided bars (visual).
+3. **Tutor pivot (below chart)** — diagnose gaps, model example, student works live, practice + mistake review *(voice: your son / daughter / you / they)*.
+
+**Voice:** Plain parent language — **never** “pattern / ceiling / capable of achieving.” Name **practice + videos + gaps**, not abstractions.
 
 **Optional future:** Add intake step “How much did their score change on the last retake?” (bands: none / &lt;30 / 30–70 / 70+) for true personalized delta — **not in v1 intake**.
 

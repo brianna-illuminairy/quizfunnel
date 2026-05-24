@@ -23,6 +23,10 @@
 | **I** immediately after the Q that triggered it | “Ask GPA, score, wrong, hours, **then** show 3 interstitials” |
 | **Never I → I** | Two insight screens in a row without a question between |
 
+**Exception (2026-05):** When `prep_class` or self-study prep is selected, **INT8 trilogy** — `prep-failed-plateau` → `prep-failed-proof` → `prep-failed-guided` — before intake continues. Famous-pairs mentors step removed until auto-play (not tap-through). Other prep → single `prep-failed-stub`. `history_none` skips prep → INT8 stub.
+
+**Contrast art:** Girl triptych when who = **daughter** or **Me**; son/other use default strip. See [`funnel-contrast-assets.md`](funnel-contrast-assets.md).
+
 **Examples (your model):**
 
 | They just answered… | **Next screen** (not later) |
@@ -48,7 +52,7 @@ Not every question gets an insight. When there’s no unlock, **next screen = ne
 | 5 | Taken PSAT/SAT before? | **Q** | `history` | → 6 (tested) or **6′** (never) |
 | 6 | How did {subject} prepare? | **Q** | `prep` | → **7 INT8** |
 | 7 | Why that prep stalled *(variant by `prep_*`)* | **I** | `prep-failed` | → 8 |
-| 8 | Hours studied *(Skip OK)* | **Q** | `hours` | → 9 |
+| ~~8~~ | ~~Hours studied~~ | — | ~~`hours`~~ | **Removed** — INT8 → score or INT13 |
 | 9 | Most recent score | **Q** | `score` | → 10 |
 | 10 | What went wrong? *(multi)* | **Q** | `wrong` | → 11 |
 | 11 | GPA | **Q** | `gpa` | → **12 INT2** |
@@ -73,7 +77,7 @@ Not every question gets an insight. When there’s no unlock, **next screen = ne
 
 | After Q | Next **I** | `showIf` |
 |---------|------------|----------|
-| History | **INT3** retake reality | **`history_twice` / `history_three_plus` only** — past sittings; **`stuck_score` worry = planning retake → INT1 only** |
+| History | **INT3** retake reality | **`history_twice` / `history_three_plus` only** — prior SAT attempts; **`stuck_score` worry = planning retake → INT1 only** |
 | Prep | INT8 variant | `prep_class` → group-class copy; `prep_khan` → Khan + **2-sigma**; `prep_books` → Blue Book / dusty book |
 | Wrong | **INT5** weakness-first | optional flag — only if next would otherwise be Q and copy team wants it |
 | GPA | INT2 | always after GPA on tested path; lighter **INT7** slice if GPA high + score low trigger false |

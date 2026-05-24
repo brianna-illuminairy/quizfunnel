@@ -10,7 +10,7 @@ todos:
     status: completed
   - id: build-screen-02
     content: Build Step 2 Who on /satplan?step=who (single select, auto-advance) after Screen 01 sign-off
-    status: pending
+    status: completed
   - id: typography-ab
     content: Add Hanken vs Plus Jakarta toggle on Screen 2 for Brianna to choose
     status: pending
@@ -19,7 +19,7 @@ todos:
     status: pending
   - id: screen-03-onward
     content: "After Screen 02 Who: Step 3 target score, then Steps 4–11 one question each"
-    status: pending
+    status: in_progress
   - id: v4-editorial-pass
     content: Update illuminairy_funnel_v4_final.md — price only on offer, dynamic weeks, screens 18–19
     status: pending
@@ -105,6 +105,20 @@ isProject: false
 ---
 
 # Illuminairy SAT Quiz Funnel — Screen-by-Screen Plan
+
+## Production status (2026-05-24)
+
+**Live route:** Illuminairy `/satplan` — **not** the Babel prototype.
+
+| Shipped | Pending |
+|---------|---------|
+| Landing, worries, who, target, INT1, history, INT3, prep | GPA, hours, score, wrong |
+| INT8 stub + 4-beat trilogy (`prep_class`) | INT2, INT6, INT12 |
+| Contrast visuals + girl triptych (daughter/Me) | Contact, report, book |
+
+Details: [`memory-bank/progress.md`](memory-bank/progress.md), [`files/FUNNEL-MASTER-FLOW.md`](files/FUNNEL-MASTER-FLOW.md).
+
+---
 
 ## Spec-driven development (source of truth)
 
