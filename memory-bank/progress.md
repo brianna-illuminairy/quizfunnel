@@ -7,9 +7,9 @@ See [`files/FUNNEL-MASTER-FLOW.md`](../files/FUNNEL-MASTER-FLOW.md) for full spi
 | Seq | Type | Beat | Status |
 |-----|------|------|--------|
 | 1 | Q | Worries | ✅ |
-| 2 | Q | Who | ⬜ next |
-| 3 | Q | Target | ⬜ |
-| 4 | I | INT1 trust | ⬜ |
+| 2 | Q | Who | ✅ |
+| 3 | Q | Target | ✅ |
+| 4 | I | INT1 trust | ⬜ next |
 | 5+ | Q/I | … per master flow | ⬜ |
 
 **MVP shortcut:** still co-mixed — INT1 early, INT8 after prep (tested), INT6 before contact.
@@ -32,4 +32,4 @@ See [`files/FUNNEL-MASTER-FLOW.md`](../files/FUNNEL-MASTER-FLOW.md) for full spi
 | PRD + SPEC in `specs/sat-quiz-funnel/` | ✅ |
 | `files/funnel-layout-rules.md` | ✅ |
 | `files/quiz-step-template.md` | ✅ |
-| Per-screen checklists `files/screens/` | ✅ 00–01; **02-who** spec ready |
+| Per-screen checklists `files/screens/` | ✅ 00–03; **INT1** spec ready |

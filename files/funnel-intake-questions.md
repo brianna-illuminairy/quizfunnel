@@ -51,7 +51,9 @@
 
 ## Step 3 — Target score *(goal-first)*
 
-**What’s {possessive} target score?** *(single select · auto-advance)*
+**What score is {subject} aiming for?** *(single select · auto-advance)*
+
+Pronoun after Step 2: *she* / *he* / *you* / *they*.
 
 | Option | `id` |
 |--------|------|

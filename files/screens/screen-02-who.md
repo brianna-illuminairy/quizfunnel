@@ -6,7 +6,7 @@
 **Layout rules:** [`funnel-layout-rules.md`](../funnel-layout-rules.md)  
 **Template:** [`quiz-step-template.md`](../quiz-step-template.md)  
 **Prior step:** [screen-01-worries.md](screen-01-worries.md) (`?step=worries`)  
-**Next step:** Step 3 — target score (`?step=target` or TBD)
+**Next step:** Step 4 — INT1 trust ([`screen-int1-trust.md`](screen-int1-trust.md)) · `?step=trust`
 
 ---
 
