@@ -26,6 +26,17 @@
 3. Update copy checklist in `files/screens/screen-NN-….md` (this repo).
 4. Update `memory-bank/activeContext.md` in **both** repos when done.
 
+## Layout lock (production)
+
+**Content only** on step screens — never change shell, spacing, or CSS unless the owner explicitly unlocks layout.
+
+| Allowed on `sat-plan-*.tsx` steps | Forbidden |
+|-----------------------------------|-----------|
+| `headline`, `hint`, `bodyVariant`, options/copy, state, analytics | `bodyClassName`, custom `footer`, importing `FunnelShell` / `FunnelCta` |
+| `bodyVariant`: `tile-grid` \| `option-list` \| `copy` | Editing `app/satplan/funnel.css` or template files without unlock |
+
+Enforced in Illuminairy: `npm run funnel:layout-guard` (part of `agent:verify`). Unlock: `FUNNEL_LAYOUT_UNLOCK=1`. Details: Illuminairy `components/sat-plan/LAYOUT.lock.md`.
+
 ## Read first (this repo)
 
 | Resource | When |

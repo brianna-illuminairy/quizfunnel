@@ -28,7 +28,7 @@ See [`../funnel-performance.md`](../funnel-performance.md).
 | 2 | Upcoming test | `upcoming_not_ready` |
 | 3 | Below range | `target_schools_low` |
 | 4 | App deadlines | `early_deadlines` |
-| 5 | Already retook | `stuck_score` |
+| 5 | Planning to retake | `stuck_score` |
 | 6 | Haven't started | `not_prepped` |
 
 ## Code
@@ -50,4 +50,6 @@ See [`../funnel-performance.md`](../funnel-performance.md).
 
 ## After approval
 
-- Chapter 1 title screen (v4 Screen 2)
+- Step 2 — **Who’s taking the SAT?** ([`screen-02-who.md`](screen-02-who.md)) · `?step=who`
+- Step 3 — **Target score** · `?step=target`
+- Step 4 — **INT1 — You’re in good hands** ([`screen-int1-trust.md`](screen-int1-trust.md)) · `?step=trust` · after who + target

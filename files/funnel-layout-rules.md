@@ -6,42 +6,49 @@
 
 **Meta traffic:** Design for **390×844** standard mobile; **must** QA in Instagram/Facebook in-app browser before launch — see [`research/meta-in-app-browser-qa.md`](research/meta-in-app-browser-qa.md). Reels/Story safe zones do **not** apply to HTML.
 
-## 1. Primary CTA — visible + thumb-friendly
+## 1. Fixed viewport — no scroll, nothing below the fold
 
-### What “above the fold” means here
-
-The user must **always see** the primary CTA without hunting below unrelated empty space.
-
-**Do not** pin the CTA to the viewport bottom with a huge flex gap when the question content is short (that was a layout bug).
+Design for **390×844** (Meta in-app browser). Every quiz step must fit **without scrolling**. Continue is always visible on first paint.
 
 ### Quiz shell pattern (`funnel-shell--quiz`)
 
 | Layer | Behavior |
 |-------|----------|
-| Shell | `max-height: 100dvh`, `overflow: hidden` |
-| Chrome | Header, progress, step label — fixed above scroll |
-| `funnel-main` | Scrolls when content is tall |
-| `funnel-quiz-body` | **Centered column** `max-width: 360px` — headline, answers, CTA share one axis |
-| `funnel-footer` | **Directly under** the last answer (~16px gap); `position: sticky; bottom: 0` so it stays in the thumb zone when the user scrolls a long step |
+| Shell | `height: 100svh`, `overflow: hidden` — **no page scroll** |
+| Chrome | Header, progress bar, step label — **same position every step** (only fill % changes) |
+| `funnel-quiz-body` | **Centered 360px column** — headline, hint slot, answers, **Continue** share one axis |
+| Spacing | **CSS tokens only** — never per-screen margin hacks |
 
-### CTA placement — best practice (by context)
+### Vertical rhythm tokens (Illuminairy `funnel.css`)
 
-| Context | Pattern | Why |
-|---------|---------|-----|
-| **Mobile quiz (short step)** | CTA in flow, ~16–24px below last tile | Visual grouping; no dead lagoon band; thumb reaches grid → Continue in one motion |
-| **Mobile quiz (long step)** | Same + **sticky bottom** on CTA | After scrolling options, action stays in lower third (iOS/Material “bottom action” zone) |
-| **Desktop** | Same centered column; CTA after content | Mouse users expect action below the task; no need to glue to physical bottom of monitor |
-| **Landing (Screen 00)** | Flowing CTA under hero (approved) | Message match; one scroll narrative — see `screen-00-landing.md` |
+| Token | Value | Between |
+|-------|-------|---------|
+| `--quiz-gap-headline-hint` | 6px | Headline → hint |
+| `--quiz-hint-line` + `--quiz-gap-hint-body` | 21px + 14px | Hint → answers |
+| `--quiz-gap-body-cta` | 24px | Last answer → Continue |
 
-**Thumb zone (phones):** roughly lower 40% of the screen — sticky CTA is fine when scrolling; **avoid** floating it far below unrelated content on tall viewports.
+**Hint-less steps:** `QuizStepTemplate` renders an empty **reserved hint row** (`quiz-step-hint--reserved`) so headline→answers gap matches multiselect steps.
+
+### Continue button
+
+- Always **`FunnelCta`** via **`QuizStepTemplate`** — never a one-off button
+- Lives **inside** `funnel-quiz-body` (same 360px column as answers)
+- **`margin-top: var(--quiz-gap-body-cta)`** — fixed 24px below last answer
+- **Not** sticky, **not** viewport-bottom docked, **not** separated by flex-grow empty space
 
 ### Landing (Screen 00)
 
-Approved exception: **single flowing page**, CTA directly under score cards. See `files/screens/screen-00-landing.md`.
+Approved exception: flowing page, CTA under hero — see `screen-00-landing.md`.
 
 ---
 
-## 2. Screen 1 — worries grid (`?step=worries`)
+## 2. Primary CTA — visible + thumb-friendly (legacy note)
+
+~~Sticky scroll for tall steps~~ — **removed.** If a step cannot fit 390×844 without scroll, **reduce content** (fewer options, smaller art) — do not add scroll.
+
+---
+
+## 3. Screen 1 — worries grid (`?step=worries`)
 
 Reference: `Downloads/screen-2/Screen 2.html`
 
@@ -53,25 +60,13 @@ Reference: `Downloads/screen-2/Screen 2.html`
 | Label gap | `--tile-label-gap: 10px` between art and tile label |
 | Unselected | Cream `#f3e8d2` |
 | Selected | Ink background, white label, tomato corner ✓ only when selected |
-| CTA gap | `margin-top: 16px` on footer (not viewport-bottom dock) |
+| CTA gap | `margin-top: 24px` on footer (token `--quiz-gap-body-cta`) |
 
 ---
 
-## 3. Do not regress
+## 4. Do not regress
 
-- No footer as a **sibling** of `flex: 1` main (creates empty space + off-center CTA).
-- No `aspect-ratio` tiles without `max-height`.
-- No `width: 100%` on inner white score readouts.
-- No always-visible checkbox on unselected tiles.
-
----
-
-## 4. Review checklist (every quiz screen)
-
-- [ ] Grid and CTA share the same centered column (not left-aligned grid + full-bleed button)
-- [ ] ~16px between last answer and Continue on phone and desktop
-- [ ] Tall content: CTA sticks to bottom while scrolling; short content: no huge empty band
-- [ ] **390×844 Safari** — CTA visible and aligned
-- [ ] **Instagram + Facebook in-app browser** (real device) — CTA not hidden under app chrome
-- [ ] Sticky CTA uses `max(16px, env(safe-area-inset-bottom))` — do not rely on insets alone
-- [ ] Primary button ≥ 48px tap height
+- No `overflow-y: auto` on quiz steps.
+- No sticky / viewport-bottom Continue.
+- No per-screen headline/body margin hacks — use rhythm tokens + reserved hint row.
+- No footer outside the 360px column.

@@ -1,13 +1,18 @@
 # Progress — SAT quiz funnel prototype
 
-## Screens
+## Build queue (co-mixed seq order)
 
-| # | Step | Status |
-|---|------|--------|
-| 00 | Landing | ✅ Approved |
-| 01 | Worries multiselect | 🔄 In review |
-| 02 | Chapter 1 / next v4 step | ⬜ Not started |
-| 03+ | Per `PLAN-sat-funnel.md` | ⬜ Not started |
+See [`files/FUNNEL-MASTER-FLOW.md`](../files/FUNNEL-MASTER-FLOW.md) for full spine.
+
+| Seq | Type | Beat | Status |
+|-----|------|------|--------|
+| 1 | Q | Worries | ✅ |
+| 2 | Q | Who | ⬜ next |
+| 3 | Q | Target | ⬜ |
+| 4 | I | INT1 trust | ⬜ |
+| 5+ | Q/I | … per master flow | ⬜ |
+
+**MVP shortcut:** still co-mixed — INT1 early, INT8 after prep (tested), INT6 before contact.
 
 ## Infrastructure
 
@@ -27,4 +32,4 @@
 | PRD + SPEC in `specs/sat-quiz-funnel/` | ✅ |
 | `files/funnel-layout-rules.md` | ✅ |
 | `files/quiz-step-template.md` | ✅ |
-| Per-screen checklists `files/screens/` | ✅ 00–01 |
+| Per-screen checklists `files/screens/` | ✅ 00–01; **02-who** spec ready |

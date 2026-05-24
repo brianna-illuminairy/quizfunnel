@@ -2,6 +2,8 @@
 
 **Design rule:** New screens swap **content inside fixed containers**, not new page layouts.
 
+**Layout lock (Illuminairy):** Step files may only change copy and `bodyVariant`. Shell, spacing, and `funnel.css` are locked — see Illuminairy `components/sat-plan/LAYOUT.lock.md`. Enforced by `npm run funnel:layout-guard`.
+
 ## Component map
 
 | Component | File | Owns |
@@ -43,7 +45,7 @@
   stepId="worries"
   headline="What's got you worried?"
   hint="Select all that apply"
-  bodyClassName="quiz-step--tile-grid"
+  bodyVariant="tile-grid"
   continueDisabled={selected.length === 0}
   onContinue={handleContinue}
   onBack={onBack}
@@ -59,12 +61,38 @@
 </QuizStepTemplate>
 ```
 
+## Advance behavior (all quiz screens)
+
+Every screen uses **`QuizStepTemplate`** → **`FunnelShell`** (back, wordmark, **same progress bar**, step label) + optional **`FunnelCta`** in the footer slot. Only headline, hint, and body change per screen. Sizing: shared `funnel-quiz-body` **360px** column + layout rules in [funnel-layout-rules.md](funnel-layout-rules.md).
+
+| Screen type | `FunnelCta` | User action |
+|-------------|-------------|-------------|
+| **Multiselect** (e.g. worries) | Shown; **enabled** when ≥1 selected | Tap options → tap **Continue** |
+| **Single select** (one question per step) | Shown; **always disabled** (grayed) | Tap option → **auto-advance** to next step (~300ms) |
+
+**Do not** build combined multi-question steps on one URL. Legacy Screen 02 score/GPA/retake specs are **deprecated** — see [`funnel-intake-questions.md`](funnel-intake-questions.md).
+
+### Template props (Illuminairy)
+
+| Prop | Values | Notes |
+|------|--------|-------|
+| `bodyVariant` | `tile-grid` \| `option-list` \| `copy` | **Required.** Replaces deprecated `bodyClassName`. |
+
+| Mode | `onContinue` | `continueDisabled` |
+|------|--------------|-------------------|
+| Multiselect | handler | `true` until valid selection |
+| Auto-advance | `() => {}` or no-op | `true` always (button visible, grayed) |
+
+Body components (`QuizTileGrid`, `QuizOptionList`, etc.) call funnel `goTo(nextStep)` on the final single-select tap — not via the CTA click.
+
+---
+
 ## Body patterns
 
 | Pattern | Component / CSS |
 |---------|-----------------|
 | Multiselect grid | `QuizTileGrid` + `.quiz-tile-grid` |
-| Single select list | `.quiz-options` (legacy) |
+| Single select list | `QuizOptionList` + `.quiz-option-list` |
 | Stub / interstitial | `quiz-step-eyebrow` + `quiz-step-copy` |
 
 ## Landing

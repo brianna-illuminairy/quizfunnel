@@ -3,14 +3,14 @@ name: SAT Quiz Funnel
 overview: "Hypothesis-driven SAT funnel: v4 + swipe-file patterns are inputs to test, not the build spec. Production UI ships in Illuminairy Next.js at /satplan (not Babel prototype). This repo holds specs, copy, and screen checklists."
 todos:
   - id: screen-02-spec
-    content: Finalize Screen 2 copy/UX (v4 Screen 1 multiselect) + typography A/B toggle plan
-    status: pending
+    content: Screen 02 = Step 2 Who (single select) — screen-02-who.md; not combo score/GPA
+    status: completed
   - id: funnel-shell
     content: Extract FunnelShell, progress bar, sessionStorage state, simple step router in app.jsx
     status: completed
   - id: build-screen-02
-    content: Screen 01 worries in prototype + landing CTA wired; Screen 02 (Chapter 1) after sign-off
-    status: in_progress
+    content: Build Step 2 Who on /satplan?step=who (single select, auto-advance) after Screen 01 sign-off
+    status: pending
   - id: typography-ab
     content: Add Hanken vs Plus Jakarta toggle on Screen 2 for Brianna to choose
     status: pending
@@ -18,7 +18,7 @@ todos:
     content: "Parallel: 2-3 north-star nav lockups per visual-identity.md (separate design pass)"
     status: pending
   - id: screen-03-onward
-    content: "After Screen 2 approval: Chapter 1 divider then score/GPA/retake combined screen"
+    content: "After Screen 02 Who: Step 3 target score, then Steps 4–11 one question each"
     status: pending
   - id: v4-editorial-pass
     content: Update illuminairy_funnel_v4_final.md — price only on offer, dynamic weeks, screens 18–19

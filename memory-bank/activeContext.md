@@ -4,14 +4,13 @@
 
 ## Current focus
 
-- **Production funnel:** `illuminairy.com/satplan` — Next.js in main repo (`app/satplan/`, `components/sat-plan/`)
-- **Screen 01 — Worries** — `/satplan?step=worries` (same UI as prototype; built for speed)
-- **Prototype** (`prototype/`) — reference only; do not add new screens there
-- **Next:** Screen 02 after Screen 01 sign-off on `/satplan`
+- **Master flow:** [`files/FUNNEL-MASTER-FLOW.md`](../files/FUNNEL-MASTER-FLOW.md) — **one Q or one I per screen**; insight **immediately after** triggering Q; **never I→I**
+- **Screen 01** worries ✅ · **Screen 02** Who ✅ (Illuminairy) · **Screen 03** target ⬜ next
+- Old model “all questions then all interstitials” — **rejected**
 
 ## Recent changes
 
-- Reusable component system: `FunnelCta`, `QuizStepTemplate`, `QuizTileGrid`; worries migrated off one-off shell
+- Consultative interstitial **copy spec** drafted (INT6 authoritative voice, INT8/12/13, etc.) — does **not** change build order
 - Desktop centering + unified CTA width (shell `--page-max`, footer outside 360px body column)
 - `prototype/` folder (was `New Funnel for Illuminairy/`)
 - Git repo initialized with README, AGENTS.md, memory-bank, specs, files
