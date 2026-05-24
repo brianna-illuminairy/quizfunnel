@@ -31,7 +31,7 @@ Store as `wrong_*[]`. Require ≥1 selection to enable Continue. **No** follow-u
 | Rule | Value |
 |------|--------|
 | Template | **`QuizStepTemplate`** |
-| Body | **`QuizTileGrid`** — 6 illustrated tiles (Time, Focus, Anxiety, Math, Reading, Prep) |
+| Body | **`QuizTileGrid`** — 6 tiles: Ran out of time · Struggled with stamina · Overthought · Math · Reading & writing · Not enough preparation |
 | Footer | **`FunnelCta`** — enabled when ≥1 selected |
 | Advance | Continue → Step 9 GPA |
 
@@ -39,7 +39,7 @@ Store as `wrong_*[]`. Require ≥1 selection to enable Continue. **No** follow-u
 
 ## Build checklist
 
-- [x] Six image tiles (`wrong_cat_*`) — same art as INT13 kid-problem grid
+- [x] Six image tiles (`wrong_cat_*`) — parent-facing labels above; same art as INT13
 - [x] Multiselect inverted tile pattern (match worries)
 - [ ] Back → Step 7 with selections restored
 - [ ] Skip path: N/A — step hidden entirely if `history_none`

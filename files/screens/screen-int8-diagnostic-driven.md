@@ -1,6 +1,6 @@
 # Screen — Why diagnostic-driven prep works *(INT8 · slide 3)*
 
-**Status:** Shipped in production (Illuminairy `/satplan`)  
+**Status:** Shipped in production (Illuminairy `/satplan`) — **sequential analysis animation (2026-05)**  
 **Interstitial:** [`INT8`](../funnel-interstitials-noom-map.md) — education part **C**  
 **Step:** `prep-failed-guided`  
 **Trigger:** After `prep-failed-proof` in INT8 trilogy (group class or self-study prep)
@@ -12,11 +12,21 @@ Mom’s aha: **Targeted beats broad review** — diagnose exact question types, 
 ## Copy checklist (production)
 
 - [x] Headline (inline, same size): “Here's what works better.” (ink) + “We focus on what moves the score fastest.” (tomato)
-- [x] Intro: 28 skill areas — focus on what raises score fastest (voice-specific)
-- [x] Body: full diagnostic → rank weaknesses → focus on fastest score movers
-- [x] Graphic left: SAT topic map (Functions, Boundaries, Ratios highlighted with point losses)
-- [x] Graphic right: Personalized Score Plan (Functions, Boundaries, Ratios, Probability)
-- [x] Bottom: illustrative score progression 1100 → 1240 → 1360
+- [x] **One continuous animated graphic** (no body paragraphs) — calm, computational pacing
+- [x] **State 1 — Analyzing:** “Analyzing SAT performance…” + “28 SAT skill areas evaluated”; scrolling skill list; tags STRONG / DEVELOPING / HIGH IMPACT / LOW IMPACT
+- [x] **State 2 — Filtering:** ranked list **slots in one-by-one** with illustrative **+XX pts** per skill (attack order)
+- [x] **State 3 — Building:** skills highlight; score range climbs; **week blocks Wk 2–3, 4–5, 6–7, 8–9, 10–11** activate in sync
+- [x] **Final — Ready:** “Focused roadmap ready.” + summary line + prioritized list + score range + progress viz
+- [x] `prefers-reduced-motion`: static final state
+
+## Implementation (Illuminairy)
+
+| Piece | Path |
+|-------|------|
+| Copy + skills | `lib/sat-plan-funnel/int8-diagnostic-driven-copy.ts` |
+| Graphic | `components/sat-plan/int8-diagnostic-analysis-graphic.tsx` |
+| Body | `components/sat-plan/int8-diagnostic-driven-body.tsx` |
+| CSS | `app/satplan/funnel.css` (`.int8-diagnostic-analysis*`) |
 
 ## Flow
 
@@ -26,9 +36,10 @@ Mom’s aha: **Targeted beats broad review** — diagnose exact question types, 
 
 ## QA
 
-- [ ] 390×844 Meta IAB — fits without scroll
+- [ ] 390×844 Meta IAB — fits without scroll; Continue visible on first paint
+- [ ] Animation ~15s full loop; no bounce/zoom; tags readable on mobile
 - [ ] `/satplan?step=prep-failed-guided`
-- [ ] Back → proof; Continue → intake continues
+- [ ] Back → proof; Continue → mistake-driven
 
 ## Dev URL
 

@@ -18,7 +18,7 @@ See [`files/FUNNEL-MASTER-FLOW.md`](../files/FUNNEL-MASTER-FLOW.md).
 | 6 | Q | Prep | ✅ |
 | 7 | I | INT8 | ✅ (stub + 4-beat trilogy for `prep_class`) |
 | 8 | Q | GPA | ✅ |
-| 9 | Q | hours, score | ✅ (tested path) |
+| 9 | Q | score, wrong | ✅ (tested path) |
 | 10 | Q | test-date | ✅ |
 | — | Q/I stubs | wrong, INT2, INT6×2, schools, contact, report, book | 🔄 placeholders (E2E wired) |
 

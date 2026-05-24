@@ -12,11 +12,10 @@ Mom’s aha: **They already studied hard** — but self-study doesn’t pinpoint
 ## Copy checklist (production)
 
 - [x] Headline: “Why self-study often stops working after a certain point”
-- [x] Intro + effort list (YouTube, Bluebook, practice tests, Khan Academy)
-- [x] Body: no mistake-level diagnosis; hours on strengths, not costliest gaps
-- [x] Dashboard graphic: messy tiles, scattered topics, giant checklist, overwhelmed student
-- [x] Overlay: “More studying ≠ targeted improvement”
-- [x] Footer: “Lots of effort. Little score movement.”
+- [x] Intro + effort list (Bluebook, Khan Academy, practice tests, YouTube)
+- [x] Body: self-study doesn't pinpoint focus areas; more drills on weak content alone doesn't close the gap
+- [x] **Contrast image:** `prep-contrast-home-vs-guided.png` (daughter variant when applicable) via `Int8PrepContrastPair` pair `home`
+- [x] CSS dashboard graphic only if contrast PNG unavailable (fallback)
 
 ## Flow
 

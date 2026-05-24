@@ -7,7 +7,7 @@
 
 ## Sprint focus (2026-05-24)
 
-Production `/satplan` through **INT8** is shipped in Illuminairy. Next: **GPA** → **INT2**, then hours/score/wrong, then contact → report → book.
+Production `/satplan` through **INT8** is shipped in Illuminairy. Next: **GPA** → **INT2**, then score/wrong, then contact → report → book. *(Study-hours Q removed 2026-05-24 — do not reintroduce without explicit request.)*
 
 INT8 acceptance notes:
 

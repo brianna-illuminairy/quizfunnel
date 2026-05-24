@@ -98,25 +98,7 @@ Pronoun after Step 2: *she* / *he* / *you* / *they*.
 
 ---
 
-## Step 6 — Study hours *(conditional · skippable)*
-
-**Shown only if** Step 4 ≠ `history_none`.
-
-**About how many hours did {subject} study for the last test?** *(single select · auto-advance · **Skip allowed**)*
-
-| Option | `id` |
-|--------|------|
-| Less than 10 hours | `hours_under_10` |
-| 10–30 hours | `hours_10_30` |
-| 30–60 hours | `hours_30_60` |
-| 60+ hours | `hours_60_plus` |
-| Not sure | `hours_not_sure` |
-
-**Skip:** *Skip* → no value stored, advance to Step 7.
-
----
-
-## Step 7 — Recent score *(conditional)*
+## Step 6 — Recent score *(conditional)*
 
 **Shown only if** Step 4 ≠ `history_none`.
 
@@ -132,7 +114,7 @@ Pronoun after Step 2: *she* / *he* / *you* / *they*.
 
 ---
 
-## Step 8 — What went wrong *(conditional)*
+## Step 7 — What went wrong *(conditional)*
 
 **Shown only if** Step 4 ≠ `history_none`.
 
@@ -185,7 +167,7 @@ Pronoun after Step 2: *she* / *he* / *you* / *they*.
 
 ---
 
-## Step 9 — GPA
+## Step 8 — GPA
 
 **What’s {possessive} GPA?** *(single select · auto-advance)*
 
@@ -199,7 +181,7 @@ Pronoun after Step 2: *she* / *he* / *you* / *they*.
 
 ---
 
-## Step 10 — Retake / test date
+## Step 9 — Retake / test date
 
 **When is {subject} planning to take {or retake} the SAT?** *(single select · auto-advance)*
 
@@ -263,7 +245,7 @@ flowchart TD
 
 ---
 
-## Step 11 — Schools *(open design)*
+## Step 10 — Schools *(open design)*
 
 **What schools is {subject} considering?** *(text · Continue or Skip)*
 
@@ -299,7 +281,7 @@ I: inserted between Q rows per master flow (e.g. INT1 after Target, INT8 after P
 
 Individual **Q steps** are listed above. **Insight (I) steps** are interleaved per [`FUNNEL-MASTER-FLOW.md`](FUNNEL-MASTER-FLOW.md) — not a separate phase after Step 11.
 
-Interstitials consume (as collected): `worries[]`, `test_taker`, `target_*`, `history_*`, `prep_*`, `hours_*`, `score_*`, `wrong_*[]`, `gpa_*`, `test_date_*`, schools (optional).
+Interstitials consume (as collected): `worries[]`, `test_taker`, `target_*`, `history_*`, `prep_*`, `score_*`, `wrong_*[]`, `gpa_*`, `test_date_*`, schools (optional).
 
 **Full interstitial map (Noom → SAT):** [`funnel-interstitials-noom-map.md`](funnel-interstitials-noom-map.md) — trust, GPA gap, retake reality, 4.4× prep bar, weakness-first method, “last prep” prediction, contact gate.
 

@@ -13,9 +13,8 @@ Mom’s aha: **Group class moves everyone through the same curriculum** — but 
 
 - [x] Headline: “Why group SAT classes rarely work for plateaued students”
 - [x] Body (4 paragraphs — same pace, uneven gaps, recurring weaknesses, compounding)
-- [x] Classroom graphic: 15 students, different weak-area highlights, one broad lesson
-- [x] Overlay: “One curriculum. Different weaknesses.”
-- [x] Score line: 1100 → 1120 → 1110 → 1140 (minimal movement)
+- [x] **Contrast image:** `prep-contrast-crowd-vs-guided.png` (daughter variant when test taker is daughter) via `Int8PrepContrastPair` pair `crowd`
+- [x] CSS classroom graphic only if contrast PNG unavailable (fallback)
 
 ## Flow
 

@@ -5,8 +5,8 @@
 ## Current focus
 
 - **Master flow:** [`files/FUNNEL-MASTER-FLOW.md`](../files/FUNNEL-MASTER-FLOW.md) — one Q or one I per screen; insight immediately after triggering Q
-- **Production spine (Illuminairy `/satplan`):** landing → … → **INT13** *(self-study prep)* → score → wrong → **INT12** → GPA → **INT2** → test-date → **INT6-timeline** → **plan-path** → contact → plan-ready → report → book *(schools Q removed May 2026)*
-- **Removed:** `hours` study-time Q (2026-05-24) — INT8 exit goes straight to score or kid-problem
+- **Production spine (Illuminairy `/satplan`):** landing → … → INT8 → **score** → wrong → **INT12** → GPA → **INT2** → test-date → **INT6-timeline** → **plan-path** → contact → plan-ready → report → book *(schools Q removed May 2026)*
+- **Removed (permanent):** `hours` study-time Q (2026-05-24). **INT13 kid-problem** (`int13-kid-problem` + `kid-problem`) removed 2026-05 — INT8 exit goes straight to **score**. **Do not reintroduce unless Brianna asks explicitly.**
 - **INT8 trilogy** (`prep_class` + self-study): group class → **group-class-fail** → proof → guided; self-study → **self-study-fail** → proof → guided
 - **INT8 non-trilogy:** single `prep-failed-stub`; `history_none` skips prep → INT8 stub → GPA
 
@@ -14,7 +14,7 @@
 
 - **INT2** `gpa-paradox` — replaced marketer copy with v4 Screen 6A (“We see this all the time”, school vs SAT skills, 75s timing); eyebrow + split GPA/SAT card; optional expert video env
 - **INT12** `sat-changed` — digital vs paper after wrong / never-tested INT8; **format contrast PNG live** (`digital-vs-paper-prep.png`, SAT 1979 vs 2026)
-- **INT13** `kid-problem` — 6-option image tile multiselect (time, focus, anxiety, math, reading, lack of prep); `kid_problem_blocks` stored for follow-ups
+- **INT13 kid-problem** — **removed** from funnel (interstitial + tile Q); tested path goes INT8 → score
 - **Girl triptych:** `prep-paths-triptych-daughter.png` when who = **daughter** or **Me** (`test_taker_self`); son/other → default strip
 - **INT8 proof:** Bloom two-sigma sentence under “+{gap} more points with 1:1 tutoring” headline (above bar chart)
 - **INT3 retake:** 2-bar chart + 3-paragraph copy (“new approach to the SAT, not just another retake”; CB ~40 pt avg; tutor 60–70s pacing)
@@ -26,7 +26,7 @@
 |------|--------|
 | INT8 plateau | Triptych crop (home / crowd) + group-class copy |
 | INT8 proof | Bloom lead + 3-bar chart (self / group / guided pts from `lib/site.ts`) |
-| INT8 guided | Diagnostic-driven prep — topic map + personalized plan + score progression |
+| INT8 guided | Sequential diagnostic analysis animation (28 skills → filter → focus plan → 1180–1410 range) |
 | Personalization | `test_taker` drives copy + contrast image variant |
 
 ## Next steps
@@ -39,7 +39,7 @@
 - [ ] **Hours / score / wrong** — shipped
 - [x] **INT2** GPA paradox — v4 tutor voice + GPA/SAT split graphic; video via `NEXT_PUBLIC_SATPLAN_INT2_VIDEO_URL` when ready
 - [ ] **INT12** digital vs paper — shipped
-- [ ] **INT13** kid problem — shipped (hours → score branch)
+- [x] **INT13** kid problem — **removed** from funnel (2026-05); do not reintroduce unless requested
 - [ ] Meta IAB QA on INT8 trilogy path (390×844, no scroll)
 - [ ] Fill Lighthouse baseline in `files/research/perf-baseline-2026-05-23.md`
 - [ ] Contact → report → Calendly (Phase A tail per SPEC)

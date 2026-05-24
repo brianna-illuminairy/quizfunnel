@@ -20,7 +20,7 @@
 |---------|----------|
 | Q → Q → Q → **I** → Q → **I** → Q | Q → Q → Q → Q → **I → I → I** |
 | Q → Q when the first Q did **not** unlock an insight | Batching insights after a “diagnosis block” |
-| **I** immediately after the Q that triggered it | “Ask GPA, score, wrong, hours, **then** show 3 interstitials” |
+| **I** immediately after the Q that triggered it | “Ask GPA, score, wrong, **then** show 3 interstitials” |
 | **Never I → I** | Two insight screens in a row without a question between |
 
 **Exception (2026-05):** When `prep_class` or self-study prep is selected, **INT8 trilogy** — `prep-failed-plateau` → `prep-failed-proof` → `prep-failed-guided` — before intake continues. Famous-pairs mentors step removed until auto-play (not tap-through). Other prep → single `prep-failed-stub`. `history_none` skips prep → INT8 stub.
@@ -51,26 +51,25 @@ Not every question gets an insight. When there’s no unlock, **next screen = ne
 | 4 | You’re in good hands *(mirror `worries[]` + `{target}`)* | **I** | `trust` | → 5 |
 | 5 | Taken PSAT/SAT before? | **Q** | `history` | → 6 (tested) or **6′** (never) |
 | 6 | How did {subject} prepare? | **Q** | `prep` | → **7 INT8** |
-| 7 | Why that prep stalled *(variant by `prep_*`)* | **I** | `prep-failed` | → 8 |
-| ~~8~~ | ~~Hours studied~~ | — | ~~`hours`~~ | **Removed** — INT8 → score or INT13 |
-| 9 | Most recent score | **Q** | `score` | → 10 |
-| 10 | What went wrong? *(multi)* | **Q** | `wrong` | → 11 |
-| 11 | GPA | **Q** | `gpa` | → **12 INT2** |
-| 12 | Smart kid / GPA–SAT gap | **I** | `gpa-paradox` | → 13 |
-| 13 | When take / retake? | **Q** | `test-date` | → **14 INT6-timeline** |
-| 14 | **{weeks}** until test · typical plan for that timeline | **I** | `timeline` | → 15 |
-| 15 | Target schools *(Skip OK)* | **Q** | `schools` | → **16 INT6-prediction** |
-| 16 | **{gap_pts}** gap · **182 avg** · path graph | **I** | `plan-path` | → 17 |
-| 17 | Email + phone | **contact** | `contact` | → 18 |
-| 18 | Plan ready | **I** | `plan-ready` | → 19 |
-| 19 | Report | **report** | `report` | |
+| 7 | Why that prep stalled *(variant by `prep_*`)* | **I** | `prep-failed` | → 8 (tested) or never-tested branch |
+| 8 | Most recent score | **Q** | `score` | After INT8 on tested path → 9 directly *(INT13 removed 2026-05)* |
+| 9 | What went wrong? *(multi)* | **Q** | `wrong` | → 10 |
+| 10 | GPA | **Q** | `gpa` | → **11 INT2** |
+| 11 | Smart kid / GPA–SAT gap | **I** | `gpa-paradox` | → 12 |
+| 12 | When take / retake? | **Q** | `test-date` | → **13 INT6-timeline** |
+| 13 | **{weeks}** until test · typical plan for that timeline | **I** | `timeline` | → 14 |
+| 14 | Target schools *(Skip OK)* | **Q** | `schools` | → **15 INT6-prediction** |
+| 15 | **{gap_pts}** gap · **182 avg** · path graph | **I** | `plan-path` | → 16 |
+| 16 | Email + phone | **contact** | `contact` | → 17 |
+| 17 | Plan ready | **I** | `plan-ready` | → 18 |
+| 18 | Report | **report** | `report` | |
 
 **Optional extra insights** — each must sit **directly after** the Q that triggers it, never back-to-back with another I:
 
 | Insert after Q | **I** | Notes |
 |--------------|-------|--------|
 | `wrong` (timing / format picks) | **INT12** Digital SAT | `showIf` on wrong ids |
-| `prep_own_nothing` | **INT13** Kid problem | or fold into INT8 |
+| ~~`prep_own_nothing`~~ | ~~**INT13** Kid problem~~ | **Removed 2026-05** — INT8 exit goes to `score` |
 | Before contact (only if 2-sigma not in INT8) | **INT9** Why guided | prefer merging into INT8 / INT6 |
 
 **Conditional next-screen (same rule — still immediate after triggering Q):**
@@ -107,7 +106,7 @@ Single interstitial row in spine; **body copy branches** on `prep_*`:
 | `prep_books` | Blue Book / tests without a **system** — busy, not better |
 | `prep_class` | Overview on what they know; no 1:1 on misses |
 | `prep_tutor` | Hours without diagnostic + Digital full tests |
-| `prep_own_nothing` | Light INT13 tease or skip to hours |
+| `prep_own_nothing` | Skip to score *(INT13 removed)* |
 
 ---
 
@@ -124,7 +123,7 @@ Do **not** combine timeline + gap + 182 + graph on one screen if it reads like t
 
 ## Never-tested path (`history_none`)
 
-Skip prep, hours, score, wrong, INT8, INT3.
+Skip prep, score, wrong, INT8, INT3.
 
 | # | Screen |
 |---|--------|
@@ -150,7 +149,7 @@ One Q or one I per screen; reactive inserts only:
 Q worries → Q who → Q target → **I INT1**
 → Q history → [I INT3 if retake trigger]
 → Q prep → I INT8
-→ Q hours → Q score → Q wrong → Q gpa → I INT2
+→ Q score → Q wrong → Q gpa → I INT2
 → Q test-date → I timeline
 → Q schools → I plan-path (gap + 182)
 → contact → I INT11 → report
