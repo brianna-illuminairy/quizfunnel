@@ -52,7 +52,7 @@ Until dedicated panels exist, the app crops this strip with `object-position` (l
 | INT3 retake | `ContrastBarChart` | CSS bars — no image |
 | INT8 proof | `ContrastBarChart` | CSS bars — no image |
 | INT8 mentors | `Int8MentorshipSplash` | Text cards — no image |
-| INT12 format contrast | `Int12FormatContrast` | **680×510** @2x — **Live** `public/satplan/int12/digital-vs-paper-prep.png` (SAT 1979 paper vs SAT 2026 laptop) |
+| INT12 format contrast | `Int12FormatContrast` | **680×510** @2x — **Live** `public/satplan/int12/digital-vs-paper-prep.png` (1979 paper SAT · digital Bluebook + Desmos, May 2026 art) |
 | INT2 GPA paradox *(planned)* | Split cards | **680×510** each or single **680×340** banner, 2:1 |
 
 ## QA checklist

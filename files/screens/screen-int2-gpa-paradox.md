@@ -1,30 +1,42 @@
 # Screen — Smart kid / GPA paradox *(INT2)*
 
-**Status:** Spec draft  
-**Placement:** **Next screen immediately after** `gpa` Q — not after score+wrong batch  
+**Status:** Shipped in production (Illuminairy `/satplan`) — **tutor-note layout May 2026**  
+**Placement:** Immediately after `gpa` Q  
 **Interstitial:** [`INT2`](../funnel-interstitials-noom-map.md) — education part **A**  
 **Stable step id:** `gpa-paradox`
 
-## Trigger
+## Job
 
-Always follows **GPA** on tested path. Never-tested path may use lighter **INT7** high-ceiling variant after GPA.
+Explain why **high-GPA students** often **underperform on the SAT** — school skills vs timed digital test skills.
 
-## Job (one screen, one aha)
+## Copy checklist (production)
 
-Why **smart kids with strong GPAs** often **underperform on the SAT** relative to classroom performance — GPA measures different skills than Digital SAT timing / format.
+- [x] Eyebrow: “A note from our head tutor” (orange mark)
+- [x] Tutor note blockquote (left accent): pattern line + habits quote in one block
+- [x] Compare cards: **In school** (depth) vs **On the SAT** (speed)
+- [x] Insight section (boxed): knowledge vs speed & stamina + trainable skills (single block)
+- [x] Tutor signature: Maya Reinhart · Head tutor · Illuminairy (photo placeholder until asset)
+- [x] **No** 200+ stat banner / intake footnote on this screen
+- [x] Single Continue → **test-date**
 
-## Copy checklist
+## Implementation (Illuminairy)
 
-- [x] References **their** GPA band from intake (`int2-gpa-paradox-copy.ts`)
-- [x] If high GPA + low SAT trigger: full **GPA–SAT gap** beat (v4 Screen 6A voice)
-- [x] If trigger false: shorter “grades ≠ SAT score” beat — still one screen
-- [x] Eyebrow: **Why smart kids score low on the SAT** + GPA/SAT split graphic
-- [ ] Expert video: set `NEXT_PUBLIC_SATPLAN_INT2_VIDEO_URL` + poster at `public/satplan/int2/expert-video-poster.jpg`
-- [x] College Board grade–test footnote via `satGpaSatResearch` in `lib/site.ts`
-- [x] No score guarantees; no “skills gap we can map” marketer lines
-- [x] Single Continue → **test-date** Q
+| Piece | Path |
+|-------|------|
+| Copy | `lib/sat-plan-funnel/int2-gpa-paradox-copy.ts` |
+| Headline | `components/sat-plan/int2-gpa-paradox-headline.tsx` |
+| Body | `components/sat-plan/int2-gpa-paradox-body.tsx` |
+| Compare cards | `components/sat-plan/int2-gpa-paradox-compare.tsx` |
+| Rich copy | `components/sat-plan/int2-rich-copy.tsx` |
+| Step | `components/sat-plan/sat-plan-int2-gpa-paradox.tsx` |
+| CSS | `app/satplan/funnel.css` (`.int2-gpa-paradox*`, scroll/sticky footer) |
 
 ## QA
 
-- [ ] Never stacked after other insights without a Q between
-- [ ] Does not duplicate full INT7 profile label (that’s optional elsewhere)
+- [ ] 390×844 — readable; Continue sticky at bottom when scrolling
+- [ ] `/satplan?step=gpa-paradox`
+- [ ] No SAT score guarantees; no 200+ outcomes block
+
+## Dev URL
+
+http://localhost:3000/satplan?step=gpa-paradox

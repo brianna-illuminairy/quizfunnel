@@ -4,8 +4,8 @@
 **Interstitial:** [`INT8`](../funnel-interstitials-noom-map.md) — education part **B**  
 **Steps (group class):** `prep-failed-group-class` → `prep-failed-proof` → `prep-failed-guided`  
 **Steps (self-study):** `prep-failed-self-study` → `prep-failed-proof` → `prep-failed-guided`  
-**Steps (legacy plateau):** `prep-failed-plateau` — stub / `beat=full` only  
-**Trigger:** `prep_class` → group-class slide; self-study ids (no class) → self-study slide; other prep → `prep-failed-stub`
+**Steps (legacy plateau):** `prep-failed-plateau` — deep-link only  
+**Trigger:** `prep_class` → group-class slide; all other prep (incl. little/none) → self-study slide. `history_none` → self-study slide (no prep Q).
 
 ## Job (one aha per screen)
 
@@ -40,6 +40,7 @@ See [`screen-int8-group-class-fail.md`](screen-int8-group-class-fail.md).
 - [x] **Above chart:** Bloom two-sigma sentence (`proofBloomCopy`)
 - [x] 3-bar chart — Bloom card title; ~40 / ~70 / ~182 from `lib/site.ts`
 - [x] **Below chart:** College Board retake avg vs Illuminairy program avg (`proofAfterChartCopy`; 142 pts higher than self-study on self-study path)
+- [x] Serves trilogy slide 2 **and** is always followed by guided → mistake-driven (no short exit)
 
 ### Mentors (`prep-failed-mentors`)
 - [x] Tap-through pairs + reveal + bridge copy

@@ -1,19 +1,24 @@
 # Active context
 
-*Last updated: 2026-05-24*
+*Last updated: 2026-05-25*
 
 ## Current focus
 
 - **Master flow:** [`files/FUNNEL-MASTER-FLOW.md`](../files/FUNNEL-MASTER-FLOW.md) — one Q or one I per screen; insight immediately after triggering Q
 - **Production spine (Illuminairy `/satplan`):** landing → … → INT8 → **score** → wrong → **INT12** → GPA → **INT2** → test-date → **INT6-timeline** → **plan-path** → contact → plan-ready → report → book *(schools Q removed May 2026)*
 - **Removed (permanent):** `hours` study-time Q (2026-05-24). **INT13 kid-problem** (`int13-kid-problem` + `kid-problem`) removed 2026-05 — INT8 exit goes straight to **score**. **Do not reintroduce unless Brianna asks explicitly.**
-- **INT8 trilogy** (`prep_class` + self-study): group class → **group-class-fail** → proof → guided; self-study → **self-study-fail** → proof → guided
-- **INT8 non-trilogy:** single `prep-failed-stub`; `history_none` skips prep → INT8 stub → GPA
+- **INT8 quartet (all paths):** fail variant → proof → guided → mistake-driven. Slide 1 = `prep-failed-group-class` if `prep_class`, else `prep-failed-self-study` (incl. little/none, never-tested). `history_none` skips prep Q but still runs full INT8.
+
+## Recent changes (2026-05-25)
+
+- **INT2 `gpa-paradox`** — tutor-note layout (headline eyebrow, quote, In school / On the SAT cards, closing copy, Maya signature); **no 200+ stat banner**
+- **Q7 `wrong`** (Illuminairy) — dashboard tile widgets (`ico-wrong-*`); spec in `screen-08-what-went-wrong.md`
+- **INT12 `sat-changed`** — mockup layout (Digital headline, baseball subhead, two-panel contrast + stat rows); May 2026 art
 
 ## Recent changes (2026-05-24)
 
 - **INT2** `gpa-paradox` — replaced marketer copy with v4 Screen 6A (“We see this all the time”, school vs SAT skills, 75s timing); eyebrow + split GPA/SAT card; optional expert video env
-- **INT12** `sat-changed` — digital vs paper after wrong / never-tested INT8; **format contrast PNG live** (`digital-vs-paper-prep.png`, SAT 1979 vs 2026)
+- **INT12** `sat-changed` — digital vs paper after wrong / never-tested INT8; **format contrast PNG live** (`digital-vs-paper-prep.png`, 1979 paper · digital Bluebook + Desmos, May 2026)
 - **INT13 kid-problem** — **removed** from funnel (interstitial + tile Q); tested path goes INT8 → score
 - **Girl triptych:** `prep-paths-triptych-daughter.png` when who = **daughter** or **Me** (`test_taker_self`); son/other → default strip
 - **INT8 proof:** Bloom two-sigma sentence under “+{gap} more points with 1:1 tutoring” headline (above bar chart)

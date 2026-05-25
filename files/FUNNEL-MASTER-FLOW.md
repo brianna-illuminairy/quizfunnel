@@ -23,7 +23,7 @@
 | **I** immediately after the Q that triggered it | “Ask GPA, score, wrong, **then** show 3 interstitials” |
 | **Never I → I** | Two insight screens in a row without a question between |
 
-**Exception (2026-05):** When `prep_class` or self-study prep is selected, **INT8 trilogy** — `prep-failed-plateau` → `prep-failed-proof` → `prep-failed-guided` — before intake continues. Famous-pairs mentors step removed until auto-play (not tap-through). Other prep → single `prep-failed-stub`. `history_none` skips prep → INT8 stub.
+**Exception (2026-05):** After prep (or after history when never-tested), **INT8 quartet** — group-class-fail or self-study-fail → `prep-failed-proof` → `prep-failed-guided` → `prep-failed-mistake-driven` — for **all** prep selections including little/none. Slide 1 variant: `prep_class` → group-class fail; everything else → self-study fail. `history_none` skips prep Q but still runs full INT8 before sat-changed.
 
 **Contrast art:** Girl triptych when who = **daughter** or **Me**; son/other use default strip. See [`funnel-contrast-assets.md`](funnel-contrast-assets.md).
 

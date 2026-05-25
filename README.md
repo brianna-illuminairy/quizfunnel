@@ -52,9 +52,7 @@ Read [`AGENTS.md`](AGENTS.md) and [`memory-bank/activeContext.md`](memory-bank/a
 | Test history | `history` | ✅ |
 | INT3 retake | `int3-retake` | ✅ (`history_twice` / `history_three_plus`) |
 | Prep | `prep` | ✅ |
-| INT8 stub | `prep-failed-stub` | ✅ (self-study / non-trilogy paths) |
-| INT8 plateau | `prep-failed-plateau` | ✅ (`prep_class` trilogy) |
-| INT8 proof | `prep-failed-proof` | ✅ (+ Bloom sentence, bar chart) |
+| INT8 quartet | group/self-study fail → proof → guided → mistake-driven | ✅ (all prep paths + never-tested) |
 | INT8 mentors | `prep-failed-mentors` | ✅ (tap-through pairs) |
 | INT8 guided | `prep-failed-guided` | ✅ |
 | GPA | `gpa-stub` | ⬜ placeholder |

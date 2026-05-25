@@ -39,24 +39,24 @@ Store as `wrong_*[]`. Require ≥1 selection to enable Continue. **No** follow-u
 
 ## Tile art system (wrong step only)
 
-Unified **“minimal SAT struggle moment”** line icons in `components/sat-plan/wrong-reason-icons.tsx` (not INT13 kid-problem art).
+Dashboard readouts in `components/sat-plan/wrong-reason-icons.tsx` — same white mini-panel pattern as Screen 1 worries (`ico-wrong-*` + `funnel.css`).
 
-| Option ID | Label | Visual concept |
-|-----------|--------|----------------|
-| `wrong_cat_math` | Math | Equation row with one step **circled in tomato** (stuck step) |
-| `wrong_cat_reading` | Reading & Writing | Passage lines + **tomato underline** + correction mark |
-| `wrong_cat_anxiety` | Test Anxiety | Test sheet + **scribble cloud** + shaky check |
-| `wrong_cat_time` | Ran out of time | **Nearly-empty timer ring** + unfinished question dots |
-| `wrong_cat_focus` | Focus or Stamina | **Low battery** over fading question lines |
-| `wrong_cat_prep` | Lack of preparation | Calendar with **skipped days** + dashed incomplete practice sheet |
+| Option ID | Label | Widget |
+|-----------|--------|--------|
+| `wrong_cat_math` | Math | `MATH` · 2x² + 3x **?** · tomato underline |
+| `wrong_cat_reading` | Reading & Writing | `READING` · passage lines · italic *who,* |
+| `wrong_cat_anxiety` | Test Anxiety | `HEART RATE` · spike · **142** BPM |
+| `wrong_cat_time` | Ran out of time | `TIME LEFT` · **0:14** MIN · low progress bar |
+| `wrong_cat_focus` | Focus or Stamina | `BATTERY` · **12%** fill |
+| `wrong_cat_prep` | Lack of preparation | `PRACTICE TESTS` · **0** / 8 TAKEN · empty slots |
 
-Rules: thin line SVG illustrations (reference board), 120×72 viewBox, tomato accent only on the mistake, ink → white / cream accent when tile selected. Tile art height 76px.
+Rules: mono uppercase `.lbl`, display `.val` in tomato, white panel on cream tile; selected tile keeps cream panel. Tile art height 76px.
 
 ---
 
 ## Build checklist
 
-- [x] Six image tiles (`wrong_cat_*`) — parent-facing labels; unified wrong-reason SVG art
+- [x] Six image tiles (`wrong_cat_*`) — parent-facing labels; dashboard `ico-wrong-*` widgets
 - [x] Multiselect inverted tile pattern (match worries)
 - [ ] Back → Step 7 with selections restored
 - [ ] Skip path: N/A — step hidden entirely if `history_none`

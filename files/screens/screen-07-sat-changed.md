@@ -20,25 +20,33 @@
 ## Copy checklist
 
 ### Headline (h1 — no separate eyebrow)
-- [x] “Did you know, the SAT is **fully digital** now.” — accent on **fully digital** (tomato); rest ink
+- [x] “The SAT is **Digital.**” — accent on **Digital.** (tomato); rest ink
 
-### Above image
-- [x] “It's taken on a laptop, not pencil and paper, and it includes built-in tools that students have to use in order to not run out of time.”
+### Subhead (below headline, in body)
+- [x] “You wouldn't train for a baseball game on a football field. **So why prep for a digital test on paper?**”
 
-### Below image
-- [x] 70–85% math + formula sheet / calculator stat; Illuminairy trains on same on-screen tools
-- [x] Closing: “Don't train for a digital test with pencil, paper, and a prep book from 2019.”
+### Format contrast (two panels + year badges)
+- [x] Left: `sat-paper-1979.png` · badge **SAT · 1979** (ink)
+- [x] Right: `sat-digital-2026.png` · badge **SAT · 2026** (tomato)
+
+### Stat rows (below images)
+- [x] **01 THE PRESSURE** — **53%** · of students **feel rushed or run out of time on SAT Math.**
+- [x] **02 THE HIDDEN EDGE** — **75s → 15s** · Math problems that take over a minute by hand **can be solved in under 15 seconds using the built-in calculator.**
+- [x] **03 WHAT IT'S WORTH** — **50+ pts** · **Leaving just 4 Math questions unanswered** can lower an SAT score by 50+ points.
+
+### Closing
+- [x] “We train students on the same digital interface tools, like the **Desmos calculator**, they need to answer **faster and more accurately on test day.**”
 
 ### Personalization (`prep_*` from Step 5 — show one line when match)
 
 | `prep_*` | Extra line |
 |----------|------------|
 | `prep_class` | Many classes still run paper drills; test day is on a laptop. |
-| `prep_khan` / `prep_app_other` | Apps help — but if {subject} never trains **timed digital reps**, test day still feels foreign. |
+| `prep_khan` / `prep_app` / `prep_youtube` | *(no extra line — removed May 2026)* |
 | `prep_class` + low score | *(stronger INT8 tie-in optional)* |
 
 ### Footnote (required on screen or next beat)
-- [ ] College Board: Digital SAT format, embedded Desmos, formula sheet — factual.
+- [x] College Board Desmos/formula footnote — **removed May 2026** (no on-screen citation)
 - [ ] **1.5× / speed claim** — source TBD; align with [`danielle_sat_report_v2.jsx`](../danielle_sat_report_v2.jsx) (30–40%) before prod headline.
 
 ### CTA
@@ -48,7 +56,7 @@
 
 ## UI / layout
 
-- [x] Noom-style **education interstitial** — centered copy + **`Int12FormatContrast`** (`digital-vs-paper-prep.png`, 680×510 @2x)
+- [x] Noom-style **education interstitial** — headline + subhead + **two-panel** `Int12FormatContrast` (1979 / 2026 badges) + **stat rows** + closing line
 - [ ] Progress chapter: **CHAPTER 2 · WHY PRIOR PREP STALLED** (or 2-chapter collapse: “Why the score happened”)
 - [ ] `education_part: b` + `interstitial_id: int12_digital` analytics
 - [ ] Feature flag: `ch1_digital_format`

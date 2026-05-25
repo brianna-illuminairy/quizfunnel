@@ -26,9 +26,7 @@ See [`files/FUNNEL-MASTER-FLOW.md`](../files/FUNNEL-MASTER-FLOW.md).
 
 | Step | `?step=` | Status |
 |------|----------|--------|
-| Stub (self-study / single beat) | `prep-failed-stub` | ✅ |
-| Plateau + triptych | `prep-failed-plateau` | ✅ |
-| Proof + Bloom + bars | `prep-failed-proof` | ✅ |
+| Proof (short + trilogy) | `prep-failed-proof` | ✅ |
 | Famous mentors | `prep-failed-mentors` | ✅ |
 | Guided plan | `prep-failed-guided` | ✅ |
 

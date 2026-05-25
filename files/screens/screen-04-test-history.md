@@ -12,7 +12,7 @@
 
 | Option | `id` | Branch |
 |--------|------|--------|
-| No — neither SAT nor PSAT | `history_none` | → **INT8** (`prep-failed-stub`) — skip prep/hours/score/wrong; self-study vs tutor bar · then GPA |
+| No — neither SAT nor PSAT | `history_none` | → **INT8 quartet** (self-study fail → proof → guided → mistake-driven) — skip prep/score/wrong · then sat-changed → GPA |
 | PSAT only | `history_psat_only` | → prep (`?step=prep`) |
 | Once | `history_once` | → prep |
 | Twice | `history_twice` | → **INT3** (`?step=int3-retake`) → prep |
