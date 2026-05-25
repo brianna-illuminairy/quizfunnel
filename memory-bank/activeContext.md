@@ -24,6 +24,7 @@ Slide 1 = `prep-failed-group-class` if `prep_class`, else `prep-failed-self-stud
 
 ## Recent changes (2026-05-25)
 
+- **Diagnosis voice (full funnel)** — `diagnosis-copy.ts` + `prep-labels.ts` in Illuminairy; mirror intake / profile / pattern openers on INT1, INT8, INT2, INT3, INT6, INT12, report; spec [`files/funnel-diagnosis-voice.md`](files/funnel-diagnosis-voice.md)
 - **INT2 `gpa-paradox`** — tutor-note layout (headline eyebrow, quote, In school / On the SAT cards, closing copy, Maya signature); **no 200+ stat banner**
 - **Q wrong** — dashboard tile widgets (`ico-wrong-*`); spec [`files/screens/screen-08-what-went-wrong.md`](../files/screens/screen-08-what-went-wrong.md)
 - **INT12 `sat-changed`** — mockup layout (Digital headline, baseball subhead, two-panel contrast + stat rows); May 2026 art

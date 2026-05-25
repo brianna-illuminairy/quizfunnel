@@ -183,7 +183,7 @@ No **I → I → I** block in MVP.
 | | After **worries only** | After **who + target** *(default)* |
 |--|------------------------|-------------------------------------|
 | **Feels like** | Pitch before they’ve shared context | Checkpoint after they’ve invested + named a goal |
-| **Personalization** | “Your student” only | **{daughter/son/you}** + **{target band}** |
+| **Personalization** | “Your student” only | **{daughter/son/you}** + **{target band}** + diagnosis voice ([`funnel-diagnosis-voice.md`](funnel-diagnosis-voice.md)) |
 | **Proof (1450+, 182, N families)** | Often reads **salesy** | Reads as “we do this for goals like yours” |
 | **Mirror worries** | Natural timing for pain | Still works — store `worries[]`, echo on INT1 |
 

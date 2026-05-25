@@ -13,6 +13,7 @@ Mom’s aha: **Targeted beats broad review** — diagnose exact question types, 
 
 - [x] Headline: “What actually works”
 - [x] Intro (`quiz-step-copy`, full column width — same as Bloom proof body): diagnostic-driven plan — diagnoses skill gaps, builds personalized plan — voice-specific his/her/your/their
+- [x] **Ready-phase summary** — `basedOnWhatYouShared` + prioritize highest-impact skills (not generic cohort line)
 - [x] **One continuous animated graphic** (no body paragraphs) — calm, computational pacing
 - [x] **State 1 — Diagnosing:** “Diagnosing SAT skill performance…” + “28 SAT skill areas evaluated”; scrolling skill list; tags STRONG / DEVELOPING / HIGH IMPACT / LOW IMPACT
 - [x] **State 2 — Filtering:** ranked list **slots in one-by-one** with illustrative **+XX pts** per skill (attack order)

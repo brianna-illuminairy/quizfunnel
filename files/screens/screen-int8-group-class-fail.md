@@ -7,12 +7,13 @@
 
 ## Job
 
-Mom’s aha: **Group class moves everyone through the same curriculum** — but plateaued students (1100s–1200s) have **different recurring gaps** that never get fixed, so scores barely move.
+Mom’s aha: **Group class moves everyone through the same curriculum** — but for **this** goal, the pattern is a few recurring gaps that never get fixed, not weakness in every topic.
 
 ## Copy checklist (production)
 
 - [x] Headline: “Why group SAT classes fail”
-- [x] Body (2 paragraphs × 2 sentences): all 28 skills / same pace; recurring skill weaknesses undiagnosed; can’t go deep on the 5 that move score (son/daughter/you/they voice)
+- [x] **Diagnosis opener** — `profilePatternLine` (prep + target) + pattern authority; no generic “1100s cohort” line ([`funnel-diagnosis-voice.md`](../funnel-diagnosis-voice.md))
+- [x] Body (2 paragraphs): all 28 skills / same pace; recurring skill weaknesses; deep work on the 5 that move score (voice + `yourStudentPhrase`)
 - [x] **Contrast image:** `prep-contrast-crowd-vs-guided.png` (daughter variant when test taker is daughter) via `Int8PrepContrastPair` pair `crowd`
 - [x] CSS classroom graphic only if contrast PNG unavailable (fallback)
 
