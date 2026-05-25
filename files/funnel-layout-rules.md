@@ -24,10 +24,55 @@ Design for **390×844** (Meta in-app browser). Every quiz step must fit **withou
 | Token | Value | Between |
 |-------|-------|---------|
 | `--quiz-gap-headline-hint` | 6px | Headline → hint |
+| `--quiz-gap-copy` | 14px | Between body copy paragraphs |
+| `--quiz-gap-copy-media` | 14px | Above and below images, charts, illustrations |
 | `--quiz-hint-line` + `--quiz-gap-hint-body` | 21px + 14px | Hint → answers |
 | `--quiz-gap-body-cta` | 24px | Last answer → Continue |
 
-**Hint-less steps:** `QuizStepTemplate` renders an empty **reserved hint row** (`quiz-step-hint--reserved`) so headline→answers gap matches multiselect steps.
+### Body copy typography (`copy` steps)
+
+All interstitial / trust body paragraphs use **`.quiz-step-copy`** and these tokens on `.satplan-funnel--quiz`:
+
+| Token | Value | Role |
+|-------|-------|------|
+| `--quiz-copy-font-size` | 16px | Body paragraphs |
+| `--quiz-copy-line-height` | 1.4 | Readable on 390px |
+| `--quiz-copy-font-weight` | 500 | Hanken Grotesk medium |
+| `--quiz-copy-letter-spacing` | -0.005em | Slight tightening |
+| `--quiz-copy-color` | `var(--ink)` | Body text |
+| `--quiz-copy-align` | left | Default alignment |
+
+**Modifiers** (use sparingly; do not change base size per screen):
+
+| Class | Use |
+|-------|-----|
+| `quiz-step-copy--lead` | 18px / 700 — plan-path opener |
+| `quiz-step-copy--accent` | 14px / 700 — emphasis line (e.g. INT12 prep line) |
+| `quiz-step-copy--quote` | italic — analogy / pull quote |
+| `quiz-step-footnote` | mono 11px — citations |
+
+**Centered copy:** only **INT1 trust** — add `quiz-step-trust-content--center` on the trust wrapper (graphic-first mirror beat). Every other copy step is left-aligned.
+
+Do **not** set `font-size` / `line-height` on `.quiz-step-copy` in per-screen CSS; adjust layout (charts, compact steps) instead.
+
+### Headline tiers (`copy` steps)
+
+| Tier | How | When |
+|------|-----|------|
+| **hero** | `headlineTier="hero"` or omit (default) | Most interstitials — proof, guided, self-study fail |
+| **compact** | `headlineTier="compact"` on `QuizStepTemplate` | Dense graphic above fold — group class, INT2, INT3, INT12 |
+
+**Do not** add `.quiz-step--copy:has(.int8-…)` (or similar) headline `font-size` rules in `funnel.css`. One template prop, two sizes.
+
+**Centered headline:** only INT1 trust — `quiz-step-trust-content--center` on the body wrapper (existing rule).
+
+### Copy-step media (images / charts)
+
+Every illustration, contrast pair, bar chart, or video root in a **`copy`** step must include **`quiz-step-trust-graphic`** on its outer wrapper. Spacing is **only** via `--quiz-gap-copy-media` in `funnel.css` — no per-screen margin hacks.
+
+**Hint-less steps:** `QuizStepTemplate` renders an empty **reserved hint row** (`quiz-step-hint--reserved`) on **`tile-grid` / `option-list`** steps so headline→answers gap matches hinted questions.
+
+**Hint-less `copy` steps** (interstitials with body content): CSS collapses the reserved row (`min-height: 0`, ~10px under headline) so the headline sits closer to copy — do not rely on the full 21px+14px hint band.
 
 ### Continue button
 

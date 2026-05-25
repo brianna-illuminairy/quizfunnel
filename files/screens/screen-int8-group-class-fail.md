@@ -11,8 +11,8 @@ Mom’s aha: **Group class moves everyone through the same curriculum** — but 
 
 ## Copy checklist (production)
 
-- [x] Headline: “Why group SAT classes rarely work for plateaued students”
-- [x] Body (4 paragraphs — same pace, uneven gaps, recurring weaknesses, compounding)
+- [x] Headline: “Why group SAT classes fail”
+- [x] Body (2 paragraphs × 2 sentences): all 28 skills / same pace; recurring skill weaknesses undiagnosed; can’t go deep on the 5 that move score (son/daughter/you/they voice)
 - [x] **Contrast image:** `prep-contrast-crowd-vs-guided.png` (daughter variant when test taker is daughter) via `Int8PrepContrastPair` pair `crowd`
 - [x] CSS classroom graphic only if contrast PNG unavailable (fallback)
 

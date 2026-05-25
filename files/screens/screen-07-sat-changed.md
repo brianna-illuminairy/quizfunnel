@@ -19,26 +19,20 @@
 
 ## Copy checklist
 
-### Eyebrow
-- [ ] **DID YOU KNOW** (small caps, sans)
+### Headline (h1 — no separate eyebrow)
+- [x] “Did you know, the SAT is **fully digital** now.” — accent on **fully digital** (tomato); rest ink
 
-### Headline
-- [ ] “The SAT is **fully digital** now — taken on a **laptop**, not with pencil and paper.”
+### Above image
+- [x] “It's taken on a laptop, not pencil and paper, and it includes built-in tools that students have to use in order to not run out of time.”
 
-### Body (short — 2–3 sentences max)
-- [ ] Every math question includes a **built-in graphing calculator** (Desmos) and a **formula reference sheet** — no bringing your own.
-- [ ] Students who **practice with the on-screen tools** are much faster on math than students who only drill on paper. *(~1.5× — footnote)*
-- [ ] Strong math students often skip the calculator because they “don’t need it” — but **can do it** and **can do it in 75 seconds** are different skills.
-
-### Signature analogy (required)
-- [ ] “You wouldn’t train for a **baseball** game on a **football field.**”
-- [ ] “Don’t train for a **digital** test with **pencil, paper, and a prep book from 2019.**”
+### Below image
+- [x] 70–85% math + formula sheet / calculator stat; Illuminairy trains on same on-screen tools
+- [x] Closing: “Don't train for a digital test with pencil, paper, and a prep book from 2019.”
 
 ### Personalization (`prep_*` from Step 5 — show one line when match)
 
 | `prep_*` | Extra line |
 |----------|------------|
-| `prep_books` | Paper practice tests don’t teach scrolling, highlighting, or Desmos. |
 | `prep_class` | Many classes still run paper drills; test day is on a laptop. |
 | `prep_khan` / `prep_app_other` | Apps help — but if {subject} never trains **timed digital reps**, test day still feels foreign. |
 | `prep_class` + low score | *(stronger INT8 tie-in optional)* |

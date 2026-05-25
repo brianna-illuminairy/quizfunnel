@@ -11,12 +11,13 @@ Mom’s aha: **Targeted beats broad review** — diagnose exact question types, 
 
 ## Copy checklist (production)
 
-- [x] Headline (inline, same size): “Here's what works better.” (ink) + “We focus on what moves the score fastest.” (tomato)
+- [x] Headline: “What actually works”
+- [x] Intro (`quiz-step-copy`, full column width — same as Bloom proof body): personalized SAT improvement plan — voice-specific his/her/your/their
 - [x] **One continuous animated graphic** (no body paragraphs) — calm, computational pacing
 - [x] **State 1 — Analyzing:** “Analyzing SAT performance…” + “28 SAT skill areas evaluated”; scrolling skill list; tags STRONG / DEVELOPING / HIGH IMPACT / LOW IMPACT
 - [x] **State 2 — Filtering:** ranked list **slots in one-by-one** with illustrative **+XX pts** per skill (attack order)
 - [x] **State 3 — Building:** skills highlight; score range climbs; **week blocks Wk 2–3, 4–5, 6–7, 8–9, 10–11** activate in sync
-- [x] **Final — Ready:** “Focused roadmap ready.” + summary line + prioritized list + score range + progress viz
+- [x] **Final — Ready:** “12 Week SAT Improvement Plan is ready.” + summary line + prioritized list + score range + progress viz
 - [x] `prefers-reduced-motion`: static final state
 
 ## Implementation (Illuminairy)

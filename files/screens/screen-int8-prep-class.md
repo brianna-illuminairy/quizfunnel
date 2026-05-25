@@ -36,9 +36,10 @@ See [`screen-int8-group-class-fail.md`](screen-int8-group-class-fail.md).
 - [x] Group-class plateau copy (parent voice, no capability praise without GPA)
 
 ### Proof (`prep-failed-proof`)
-- [x] Headline: “+{gap} more points with 1:1 tutoring.”
-- [x] Bloom two-sigma sentence under headline
-- [x] 3-bar chart (self-study / group / guided) — values from `lib/site.ts`
+- [x] Headline: “+{gap} more points with 1:1 tutoring.” (self-study path +142; group-class path +112)
+- [x] **Above chart:** Bloom two-sigma sentence (`proofBloomCopy`)
+- [x] 3-bar chart — Bloom card title; ~40 / ~70 / ~182 from `lib/site.ts`
+- [x] **Below chart:** College Board retake avg vs Illuminairy program avg (`proofAfterChartCopy`; 142 pts higher than self-study on self-study path)
 
 ### Mentors (`prep-failed-mentors`)
 - [x] Tap-through pairs + reveal + bridge copy
@@ -48,7 +49,7 @@ See [`screen-int8-group-class-fail.md`](screen-int8-group-class-fail.md).
 
 See [`screen-int8-diagnostic-driven.md`](screen-int8-diagnostic-driven.md).
 
-- [x] Headline (inline): “Here's what works better.” (ink) + “We focus on what moves the score fastest.” (tomato)
+- [x] Guided headline + subhead match `prep-failed-guided` / diagnostic-driven copy
 - [x] Intro: 28 skill areas — fastest path to score lift (voice-specific)
 - [x] Body: diagnostic → rank → targeted focus
 - [x] Graphic: topic map + personalized score plan + 1100→1240→1360

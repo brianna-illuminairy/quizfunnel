@@ -31,15 +31,32 @@ Store as `wrong_*[]`. Require ≥1 selection to enable Continue. **No** follow-u
 | Rule | Value |
 |------|--------|
 | Template | **`QuizStepTemplate`** |
-| Body | **`QuizTileGrid`** — 6 tiles: Ran out of time · Struggled with stamina · Overthought · Math · Reading & writing · Not enough preparation |
+| Body | **`QuizTileGrid`** 2×3 — row 1: Math · Reading & Writing · row 2: Test Anxiety · Ran out of time · row 3: Focus or Stamina · Lack of preparation |
 | Footer | **`FunnelCta`** — enabled when ≥1 selected |
 | Advance | Continue → Step 9 GPA |
 
 ---
 
+## Tile art system (wrong step only)
+
+Unified **“minimal SAT struggle moment”** line icons in `components/sat-plan/wrong-reason-icons.tsx` (not INT13 kid-problem art).
+
+| Option ID | Label | Visual concept |
+|-----------|--------|----------------|
+| `wrong_cat_math` | Math | Equation row with one step **circled in tomato** (stuck step) |
+| `wrong_cat_reading` | Reading & Writing | Passage lines + **tomato underline** + correction mark |
+| `wrong_cat_anxiety` | Test Anxiety | Test sheet + **scribble cloud** + shaky check |
+| `wrong_cat_time` | Ran out of time | **Nearly-empty timer ring** + unfinished question dots |
+| `wrong_cat_focus` | Focus or Stamina | **Low battery** over fading question lines |
+| `wrong_cat_prep` | Lack of preparation | Calendar with **skipped days** + dashed incomplete practice sheet |
+
+Rules: thin line SVG illustrations (reference board), 120×72 viewBox, tomato accent only on the mistake, ink → white / cream accent when tile selected. Tile art height 76px.
+
+---
+
 ## Build checklist
 
-- [x] Six image tiles (`wrong_cat_*`) — parent-facing labels above; same art as INT13
+- [x] Six image tiles (`wrong_cat_*`) — parent-facing labels; unified wrong-reason SVG art
 - [x] Multiselect inverted tile pattern (match worries)
 - [ ] Back → Step 7 with selections restored
 - [ ] Skip path: N/A — step hidden entirely if `history_none`

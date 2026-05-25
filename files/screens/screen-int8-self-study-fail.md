@@ -11,9 +11,11 @@ Mom’s aha: **They already studied hard** — but self-study doesn’t pinpoint
 
 ## Copy checklist (production)
 
-- [x] Headline: “Why self-study often stops working after a certain point”
-- [x] Intro + effort list (Bluebook, Khan Academy, practice tests, YouTube)
-- [x] Body: self-study doesn't pinpoint focus areas; more drills on weak content alone doesn't close the gap
+- [x] Headline: “Why self-study fails”
+- [x] Lead (son): “Your son probably studied hard: Bluebook, Khan Academy, Practice Tests, YouTube. But he likely struggled to identify which of the 28 SAT skills to focus on that would actually improve his score.”
+- [x] Closing (son): “Without someone to help him 1) diagnose & prioritize what to focus on, 2) learn the content, and 3) drill until memorized, simply doing practice problems won't help raise his score.”
+- [x] Self-taker / daughter / they variants in `int8-self-study-fail-copy.ts`
+- [x] Body uses global `--quiz-copy-*` tokens (16px / 1.4 / left)
 - [x] **Contrast image:** `prep-contrast-home-vs-guided.png` (daughter variant when applicable) via `Int8PrepContrastPair` pair `home`
 - [x] CSS dashboard graphic only if contrast PNG unavailable (fallback)
 

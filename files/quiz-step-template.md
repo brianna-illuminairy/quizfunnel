@@ -77,6 +77,19 @@ Every screen uses **`QuizStepTemplate`** → **`FunnelShell`** (back, wordmark, 
 | Prop | Values | Notes |
 |------|--------|-------|
 | `bodyVariant` | `tile-grid` \| `option-list` \| `copy` | **Required.** Replaces deprecated `bodyClassName`. |
+| `headlineTier` | `hero` (default) \| `compact` | **`copy` steps only.** Controls headline size in `funnel.css` — do not add per-screen `:has(.int8-…)` headline rules. |
+
+### Copy interstitial pattern (INT8 proof, guided, self-study, etc.)
+
+One layout for every education beat:
+
+1. **`QuizStepTemplate`** — `bodyVariant="copy"`, **no `hint`** (reserved row collapses automatically).
+2. **`headline` / `headlineNode`** — title only; use `headlineTier="compact"` only when a tall graphic needs a shorter title (group class, INT2/INT3/INT12).
+3. **Body** — wrapper `quiz-step-trust-content` + paragraphs **`quiz-step-copy`** (16px tokens). **Do not** put intro paragraphs in the `hint` slot (hint is 15px / narrow — for question steps only).
+4. **Media** — outer wrapper **`quiz-step-trust-graphic`**; spacing from `--quiz-gap-copy-media` only.
+5. **Copy strings** — `lib/sat-plan-funnel/*-copy.ts`; screen-specific CSS only for the graphic/chart, not typography.
+
+Different stories (Bloom proof vs guided plan) swap **body components and copy**, not shell spacing or font sizes.
 
 | Mode | `onContinue` | `continueDisabled` |
 |------|--------------|-------------------|
@@ -94,6 +107,7 @@ Body components (`QuizTileGrid`, `QuizOptionList`, etc.) call funnel `goTo(nextS
 | Multiselect grid | `QuizTileGrid` + `.quiz-tile-grid` |
 | Single select list | `QuizOptionList` + `.quiz-option-list` |
 | Stub / interstitial | `quiz-step-eyebrow` + `quiz-step-copy` |
+| Image / chart / video | Outer wrapper **`quiz-step-trust-graphic`** — spacing via `--quiz-gap-copy-media` only |
 
 ## Landing
 
