@@ -53,22 +53,23 @@ Not every question gets an insight. When there’s no unlock, **next screen = ne
 | 6 | How did {subject} prepare? | **Q** | `prep` | → **7 INT8** |
 | 7 | Why that prep stalled *(variant by `prep_*`)* | **I** | `prep-failed` | → 8 (tested) or never-tested branch |
 | 8 | Most recent score | **Q** | `score` | After INT8 on tested path → 9 directly *(INT13 removed 2026-05)* |
-| 9 | What went wrong? *(multi)* | **Q** | `wrong` | → 10 |
-| 10 | GPA | **Q** | `gpa` | → **11 INT2** |
-| 11 | Smart kid / GPA–SAT gap | **I** | `gpa-paradox` | → 12 |
-| 12 | When take / retake? | **Q** | `test-date` | → **13 INT6-timeline** |
-| 13 | **{weeks}** until test · typical plan for that timeline | **I** | `timeline` | → 14 |
-| 14 | Target schools *(Skip OK)* | **Q** | `schools` | → **15 INT6-prediction** |
-| 15 | **{gap_pts}** gap · **182 avg** · path graph | **I** | `plan-path` | → 16 |
-| 16 | Email + phone | **contact** | `contact` | → 17 |
-| 17 | Plan ready | **I** | `plan-ready` | → 18 |
-| 18 | Report | **report** | `report` | |
+| 9 | What went wrong? *(multi)* | **Q** | `wrong` | → **10 INT12** |
+| 10 | Digital SAT changed the game | **I** | `sat-changed` | → 11 |
+| 11 | GPA | **Q** | `gpa` | → **12 INT2** |
+| 12 | Smart kid / GPA–SAT gap | **I** | `gpa-paradox` | → 13 |
+| 13 | When take / retake? | **Q** | `test-date` | → **14 INT6-timeline** |
+| 14 | **{weeks}** until test · typical plan for that timeline | **I** | `timeline` | → 15 |
+| 15 | Target schools *(Skip OK)* | **Q** | `schools` | → **16 INT6-prediction** *(may remove from spine — see memory-bank)* |
+| 16 | **{gap_pts}** gap · **182 avg** · path graph | **I** | `plan-path` | → 17 |
+| 17 | Email + phone | **contact** | `contact` | → 18 |
+| 18 | Plan ready | **I** | `plan-ready` | → 19 |
+| 19 | Report | **report** | `report` | → 20 book |
 
 **Optional extra insights** — each must sit **directly after** the Q that triggers it, never back-to-back with another I:
 
 | Insert after Q | **I** | Notes |
 |--------------|-------|--------|
-| `wrong` (timing / format picks) | **INT12** Digital SAT | `showIf` on wrong ids |
+| `wrong` (timing / format picks) | **INT12** Digital SAT | **Shipped:** always after `wrong` on tested path; also first post-INT8 screen when never-tested |
 | ~~`prep_own_nothing`~~ | ~~**INT13** Kid problem~~ | **Removed 2026-05** — INT8 exit goes to `score` |
 | Before contact (only if 2-sigma not in INT8) | **INT9** Why guided | prefer merging into INT8 / INT6 |
 

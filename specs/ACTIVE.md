@@ -5,13 +5,31 @@
 **Plan:** [`../PLAN-sat-funnel.md`](../PLAN-sat-funnel.md)  
 **Memory:** [`../memory-bank/activeContext.md`](../memory-bank/activeContext.md)
 
-## Sprint focus (2026-05-24)
+## Sprint focus (2026-05-25)
 
-Production `/satplan` through **INT8** is shipped in Illuminairy. Next: **GPA** → **INT2**, then score/wrong, then contact → report → book. *(Study-hours Q removed 2026-05-24 — do not reintroduce without explicit request.)*
+**Phase A UI is shipped** in Illuminairy `/satplan` through the **book** step (full spine + tail screens). Focus shifts to:
 
-INT8 acceptance notes:
+1. **Phase B** — lead API, Supabase, Klaviyo, TCPA on contact, Calendly webhook  
+2. **QA** — Meta IAB 390×844, Lighthouse per `files/funnel-performance.md`  
+3. **Polish backlog** — son/neutral triptych, optional INT5/9/10, schools-step removal if approved
 
-- `prep_class` → plateau → proof → mentors → guided  
-- Bloom sentence on proof step; bar chart values from `lib/site.ts`  
-- Girl triptych when who = daughter or Me  
+### Recently shipped (Illuminairy)
+
+| Beat | `?step=` |
+|------|----------|
+| Wrong Q tiles | `wrong` |
+| INT12 digital vs paper | `sat-changed` |
+| INT2 GPA paradox | `gpa-paradox` |
+| INT8 quartet | `prep-failed-*` |
+
+### Permanent removals
+
+- Study-hours Q (2026-05-24)
+- INT13 kid-problem (2026-05) — do not reintroduce without explicit request
+
+### Acceptance notes
+
+- INT8: group-class **or** self-study → proof → guided → mistake-driven; Bloom on proof; bars from `lib/site.ts`
+- Girl triptych when who = daughter or Me
+- INT12 sits **after wrong** on tested path (not only on wrong-id `showIf`)
 - Contrast asset sizes: [`../files/funnel-contrast-assets.md`](../files/funnel-contrast-assets.md)

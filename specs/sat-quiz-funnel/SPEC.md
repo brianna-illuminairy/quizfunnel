@@ -1,7 +1,7 @@
 # SPEC: SAT quiz funnel (production at `/satplan`)
 
 - **PRD:** [PRD.md](./PRD.md)
-- **Date:** 2026-05-24
+- **Date:** 2026-05-25
 - **Implementation plan:** [../../PLAN-sat-funnel.md](../../PLAN-sat-funnel.md)
 
 ## Summary
@@ -19,15 +19,15 @@ Ship a measurable funnel: Meta LP → assessment → parent contact → instant 
 - [x] Router + `sessionStorage` + `?step=` URLs (`lib/sat-plan-funnel/`)
 - [x] Landing + worries screens; PostHog + gtag on key events (`trackSatPlanFunnelEvent`)
 - [x] Who, target, INT1 trust, history, INT3 retake (conditional), prep
-- [x] INT8 prep comparison — stub + 4-beat trilogy for `prep_class` (plateau, proof, mentors, guided)
-- [x] Contrast visuals: triptych (girl variant for daughter/Me), `ContrastBarChart`, mentorship splash
-- [x] `history_none` → INT8 stub (skip prep) → GPA stub
+- [x] INT8 quartet — group-class **or** self-study → proof → guided → mistake-driven (all prep paths + never-tested)
+- [x] Contrast visuals: triptych (girl variant for daughter/Me), `ContrastBarChart`, diagnostic animation on guided
+- [x] `history_none` → INT8 (skip prep) → sat-changed → GPA chain (skips score/wrong)
+- [x] Score, wrong (dashboard tiles + `ico-wrong-*`), INT12 sat-changed, GPA, INT2 gpa-paradox
+- [x] Test date, INT6 timeline, schools (optional skip), plan-path, plan-ready, report, book (Calendly)
+- [x] Contact screen UI: email required, phone optional
 - [x] `noindex` until launch-ready (`app/satplan/layout.tsx`)
-- [ ] GPA question (real screen) + INT2 GPA paradox
-- [ ] Hours, score, wrong questions
-- [ ] Contact screen: required parent email + phone, TCPA + privacy; optional student SMS
-- [ ] On contact success: `POST /api/funnel/lead`; **instant** report screen
-- [ ] Report + Calendly book step + confirmation
+- [ ] Contact: TCPA + privacy consent copy
+- [ ] On contact success: `POST /api/funnel/lead` (Phase B)
 - [ ] Typography A/B toggle (Hanken vs Plus Jakarta) if still needed
 - [ ] **Mobile-first QA:** 390×844 + Meta IAB; Lighthouse per `files/funnel-performance.md`
 
@@ -64,7 +64,8 @@ Ship a measurable funnel: Meta LP → assessment → parent contact → instant 
 
 ## QA checklist
 
-- [ ] Full path through INT8 trilogy (390×844, no scroll); daughter/Me shows girl triptych
+- [ ] Full path landing → book (390×844, no scroll); daughter/Me shows girl triptych
+- [ ] INT12 after wrong; INT2 tutor-note layout; wrong dashboard tiles
 - [ ] Lead row in Supabase; profile in Klaviyo
 - [ ] No `Lead` event to Meta on contact; booking event fires on Calendly
 - [ ] Banned phrases scan on new copy
