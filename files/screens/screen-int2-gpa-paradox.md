@@ -13,8 +13,8 @@ Explain why **high-GPA students** often **underperform on the SAT** — school s
 
 - [x] Eyebrow: “A note from our head tutor” (orange mark)
 - [x] Tutor note blockquote (left accent): pattern line + habits quote in one block
-- [x] Compare cards: **In school** (depth) vs **On the SAT** (speed)
-- [x] Insight section (boxed): knowledge vs speed & stamina + trainable skills (single block)
+- [x] Compare cards: **In school** (taking your time) vs **On the SAT** (speed)
+- [x] Insight section (boxed): more than math/R&W + clock/focus/stamina/speed + pinpoint skills under a clock (single block)
 - [x] Tutor signature: Maya Reinhart · Head tutor · Illuminairy (photo placeholder until asset)
 - [x] **No** 200+ stat banner / intake footnote on this screen
 - [x] Single Continue → **test-date**

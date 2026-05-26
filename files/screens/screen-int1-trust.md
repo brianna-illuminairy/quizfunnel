@@ -1,6 +1,12 @@
 # Screen — You’re in good hands *(INT1)*
 
-**Status:** Built in Illuminairy (`?step=trust`) — 2026-05-23  
+**Status:** Built in Illuminairy (`?step=trust`) — lead + CTA in `int1-trust-copy.ts`
+
+**Live copy (2026-05):**
+
+- `recent_test` worry → “You're looking for help after a recent score came back too low.”
+- Proof → “Most parents came to us to build a plan after their first SAT score came back too low.” (no “Families aiming for…” line)
+- CTA → “Let's build {your son's | Max's | …} plan to hit **1400+**.”  
 **Placement:** After `who` + `target` — seq **4** · `?step=trust`  
 **Interstitial:** [`INT1`](../funnel-interstitials-noom-map.md)
 

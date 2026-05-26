@@ -45,25 +45,40 @@ Not every question gets an insight. When there’s no unlock, **next screen = ne
 
 | # | Screen | Type | `?step=` | Unlocks next… |
 |---|--------|------|----------|---------------|
-| 1 | What’s got you worried? | **Q** | `worries` | → 2 |
-| 2 | Who’s taking the SAT? | **Q** | `who` | → 3 |
-| 3 | Target score | **Q** | `target` | → **4 INT1** |
-| 4 | You’re in good hands *(mirror `worries[]` + `{target}`)* | **I** | `trust` | → 5 |
-| 5 | Taken PSAT/SAT before? | **Q** | `history` | → 6 (tested) or **6′** (never) |
-| 6 | How did {subject} prepare? | **Q** | `prep` | → **7 INT8** |
-| 7 | Why that prep stalled *(variant by `prep_*`)* | **I** | `prep-failed` | → 8 (tested) or never-tested branch |
-| 8 | Most recent score | **Q** | `score` | After INT8 on tested path → 9 directly *(INT13 removed 2026-05)* |
-| 9 | What went wrong? *(multi)* | **Q** | `wrong` | → **10 INT12** |
-| 10 | Digital SAT changed the game | **I** | `sat-changed` | → 11 |
-| 11 | GPA | **Q** | `gpa` | → **12 INT2** |
-| 12 | Smart kid / GPA–SAT gap | **I** | `gpa-paradox` | → 13 |
-| 13 | When take / retake? | **Q** | `test-date` | → **14 INT6-timeline** |
-| 14 | **{weeks}** until test · typical plan for that timeline | **I** | `timeline` | → 15 |
-| 15 | Target schools *(Skip OK)* | **Q** | `schools` | → **16 INT6-prediction** *(may remove from spine — see memory-bank)* |
-| 16 | **{gap_pts}** gap · **182 avg** · path graph | **I** | `plan-path` | → 17 |
-| 17 | Email + phone | **contact** | `contact` | → 18 |
-| 18 | Plan ready | **I** | `plan-ready` | → 19 |
-| 19 | Report | **report** | `report` | → 20 book |
+| 1 | What would a stronger SAT score mean for you? | **Q** | `meaning` | → 2 |
+| 2 | What’s got you worried? | **Q** | `worries` | → 3 |
+| 3 | Who’s taking the SAT? | **Q** | `who` | → 3b |
+| 3b | Student first name | **Q** | `student-name` | → 4 |
+| 4 | Target score | **Q** | `target` | → **5 INT1** |
+| 5 | You’re in good hands *(mirror `worries[]` + `{target}`)* | **I** | `trust` | → 6 |
+| 6 | Prior SAT attempts | **Q** | `history` | → 7 (tested) or **7′** (never) |
+| 7 | Most recent score | **Q** | `score` | → **7b INT8 proof** (+XX 1:1) |
+| 7b | +XX points with 1:1 tutoring | **I** | `prep-failed-proof` | → 8 (tested) |
+| 8 | How did {subject} prepare? | **Q** | `prep` | → **9 INT8** (group/self-study fail) |
+| 9 | Why that prep stalled *(variant by `prep_*`)* | **I** | `prep-failed-*` | → guided |
+| 10 | What went wrong? *(multi)* | **Q** | `wrong` | → mistake-driven *(tested only)* |
+| 10b | Mistake-driven learning | **I** | `prep-failed-mistake-driven` | → **11 INT12** |
+| 11 | Digital SAT changed the game | **I** | `sat-changed` | → 12 |
+| 12 | GPA | **Q** | `gpa` | → **13 INT2** |
+| 13 | Smart kid / GPA–SAT gap | **I** | `gpa-paradox` | → 14 |
+| 14 | When take / retake? | **Q** | `test-date` | → **15 INT6-timeline** |
+| 15 | **{weeks}** until test · typical plan for that timeline | **I** | `timeline` | → 16 |
+| 16 | Target schools *(Skip OK)* | **Q** | `schools` | → **16b score-fit** |
+| 15b | Realistic score / school fit | **I** | `score-fit` | → 16 |
+| 16 | **{gap_pts}** gap · path graph | **I** | `plan-path` | → **17–20 Ch.3** |
+| 17 | Social proof | **I** | `ch3-social` | → 18 |
+| 18 | How we work | **I** | `ch3-method` | → 19 |
+| 19 | Plan preview | **I** | `ch3-preview` | → 20 |
+| 20 | Constellation / path | **I** | `ch3-path` | → 21 |
+| 21 | Email + phone | **contact** | `contact` | → 22 |
+| 22 | Application stakes · EA urgency | **I** | `reveal-stakes` | → 23 |
+| 23 | Personalized diagnosis · fixable gap | **I** | `reveal-diagnosis` | → 24 |
+| 24 | Likely bottlenecks | **I** | `reveal-bottlenecks` | → 25 |
+| 25 | Human proof / case study | **I** | `reveal-proof` | → 26 book |
+| 26 | Book (Calendly) | **book** | `book` | → 27 booked |
+| 27 | Confirmation | **I** | `booked` | end |
+
+**Removed from spine (2026-05):** `plan-ready`, `report` — legacy `?step=` aliases redirect into reveal chain.
 
 **Optional extra insights** — each must sit **directly after** the Q that triggers it, never back-to-back with another I:
 
@@ -149,8 +164,8 @@ One Q or one I per screen; reactive inserts only:
 ```
 Q worries → Q who → Q target → **I INT1**
 → Q history → [I INT3 if retake trigger]
-→ Q prep → I INT8
-→ Q score → Q wrong → Q gpa → I INT2
+→ Q score → I INT8 proof (+XX) → Q prep → I INT8 (fail → guided → Q wrong → mistake-driven)
+→ Q gpa → I INT2
 → Q test-date → I timeline
 → Q schools → I plan-path (gap + 182)
 → contact → I INT11 → report
@@ -199,6 +214,7 @@ No **I → I → I** block in MVP.
 
 | Seq | Doc | Status |
 |-----|-----|--------|
+| 0 | [screen-00-meaning.md](screens/screen-00-meaning.md) | ✅ |
 | 1 | [screen-01-worries.md](screens/screen-01-worries.md) | ✅ |
 | 2 | [screen-02-who.md](screens/screen-02-who.md) | ⬜ next |
 | 3 | target | |

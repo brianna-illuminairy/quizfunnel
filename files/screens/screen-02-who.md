@@ -5,7 +5,7 @@
 **Production target:** Illuminairy `/satplan?step=who`  
 **Layout rules:** [`funnel-layout-rules.md`](../funnel-layout-rules.md)  
 **Template:** [`quiz-step-template.md`](../quiz-step-template.md)  
-**Prior step:** [screen-01-worries.md](screen-01-worries.md) (`?step=worries`)  
+**Prior step:** [screen-01-worries.md](screen-01-worries.md) (`?step=worries`) · entry after [screen-00-meaning.md](screen-00-meaning.md)  
 **Next step:** Step 4 — INT1 trust ([`screen-int1-trust.md`](screen-int1-trust.md)) · `?step=trust`
 
 ---

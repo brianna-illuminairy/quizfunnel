@@ -23,7 +23,9 @@ Ship a measurable funnel: Meta LP → assessment → parent contact → instant 
 - [x] Contrast visuals: triptych (girl variant for daughter/Me), `ContrastBarChart`, diagnostic animation on guided
 - [x] `history_none` → INT8 (skip prep) → sat-changed → GPA chain (skips score/wrong)
 - [x] Score, wrong (dashboard tiles + `ico-wrong-*`), INT12 sat-changed, GPA, INT2 gpa-paradox
-- [x] Test date, INT6 timeline, schools (optional skip), plan-path, plan-ready, report, book (Calendly)
+- [x] Test date, INT6 timeline, schools (optional skip), score-fit, plan-path, Ch.3 chain, contact
+- [x] Post-contact reveal: `reveal-stakes` → `reveal-diagnosis` → `reveal-bottlenecks` → `reveal-proof` → `book` (Calendly)
+- [x] Deprecated spine steps: `plan-ready`, `report` (legacy `?step=` aliases redirect)
 - [x] Contact screen UI: email required, phone optional
 - [x] `noindex` until launch-ready (`app/satplan/layout.tsx`)
 - [ ] Contact: TCPA + privacy consent copy

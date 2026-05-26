@@ -4,7 +4,7 @@
 **Intake:** Step 8 in [`funnel-intake-questions.md`](../funnel-intake-questions.md)  
 **Production target:** `/satplan?step=wrong` (TBD)  
 **Show when:** Step 4 ≠ `history_none` (has taken PSAT and/or SAT)  
-**Prior:** Step 7 score · **Next:** Step 9 GPA
+**Prior:** `prep-failed-guided` · **Next:** `prep-failed-mistake-driven`
 
 ---
 
@@ -22,7 +22,7 @@ Store as `wrong_*[]`. Require ≥1 selection to enable Continue. **No** follow-u
 
 - Parent self-diagnosis before we explain — builds trust
 - **`wrong_*[]`** drives INT7 profile router and interstitial personalization (Screen 6 v4 Section B)
-- Placed **after score, before GPA** so order is: goal → history → prep behavior → score → *what they think failed* → GPA → timeline
+- Placed **after guided, before mistake-driven** so order is: … → INT8 fail → guided → *what they think failed* → mistake-driven → sat-changed → GPA → timeline
 
 ---
 
@@ -31,7 +31,7 @@ Store as `wrong_*[]`. Require ≥1 selection to enable Continue. **No** follow-u
 | Rule | Value |
 |------|--------|
 | Template | **`QuizStepTemplate`** |
-| Body | **`QuizTileGrid`** 2×3 — row 1: Math · Reading & Writing · row 2: Test Anxiety · Ran out of time · row 3: Focus or Stamina · Lack of preparation |
+| Body | **`QuizTileGrid`** 2×3 — row 1: Math · Reading & Writing · row 2: Ran out of time · Test Anxiety · row 3: Focus or Stamina · Lack of preparation |
 | Footer | **`FunnelCta`** — enabled when ≥1 selected |
 | Advance | Continue → Step 9 GPA |
 

@@ -4,9 +4,9 @@
 
 ## Current focus
 
-- **Phase A UI:** Full spine through **book** is wired in Illuminairy `/satplan`. Next priority is **Phase B** (lead capture API, TCPA, CRM) and **QA** (Meta IAB, Lighthouse).
+- **Phase A UI:** Full spine through **booked** in Illuminairy `/satplan` — Ch.2 (`student-name`, `score-fit`), Ch.3 (`ch3-social` … `ch3-path`), report/book/confirm. Next: **Phase B** (lead API, server CRM) and **QA** (Meta IAB, Lighthouse).
 - **Master flow:** [`files/FUNNEL-MASTER-FLOW.md`](../files/FUNNEL-MASTER-FLOW.md) — one Q or one I per screen; insight immediately after triggering Q.
-- **Production spine (tested path):** landing → worries → who → target → INT1 → history → [INT3] → prep → **INT8 quartet** → score → wrong → **INT12** → GPA → **INT2** → test-date → **INT6-timeline** → schools *(optional skip)* → **plan-path** → contact → plan-ready → report → book.
+- **Production spine (tested path):** landing → **meaning** → worries → … → **ch3-path** → contact → **reveal-stakes** → **reveal-diagnosis** → **reveal-bottlenecks** → **reveal-proof** → book → **booked**
 - **Never-tested:** INT8 → **INT12** → GPA → … *(skips prep, score, wrong)*.
 
 ## Removed (permanent)
@@ -24,6 +24,8 @@ Slide 1 = `prep-failed-group-class` if `prep_class`, else `prep-failed-self-stud
 
 ## Recent changes (2026-05-25)
 
+- **`meaning` step (pre-worries)** — Illuminairy `sat-plan-meaning.tsx` + `meaning-options.ts`; landing CTA → `?step=meaning` → worries; intake labels **1–12 of 12**; spec [`files/screens/screen-00-meaning.md`](../files/screens/screen-00-meaning.md)
+- **Post-contact reveal (2026-05-25)** — `final-reveal-copy.ts` + 4 reveal steps replace `plan-ready`/`report`; specs in `files/screens/screen-reveal-*.md`
 - **Diagnosis voice (full funnel)** — `diagnosis-copy.ts` + `prep-labels.ts` in Illuminairy; mirror intake / profile / pattern openers on INT1, INT8, INT2, INT3, INT6, INT12, report; spec [`files/funnel-diagnosis-voice.md`](files/funnel-diagnosis-voice.md)
 - **INT2 `gpa-paradox`** — tutor-note layout (headline eyebrow, quote, In school / On the SAT cards, closing copy, Maya signature); **no 200+ stat banner**
 - **Q wrong** — dashboard tile widgets (`ico-wrong-*`); spec [`files/screens/screen-08-what-went-wrong.md`](../files/screens/screen-08-what-went-wrong.md)
@@ -41,15 +43,15 @@ Slide 1 = `prep-failed-group-class` if `prep_class`, else `prep-failed-self-stud
 
 | Area | Notes |
 |------|--------|
-| Intake Qs | worries through test-date, score, wrong, GPA, schools |
-| Interstitials | INT1, INT3, INT8 quartet, INT12, INT2, INT6 timeline, plan-path, plan-ready |
-| Tail | contact (form UI), report (snapshot), book (Calendly link) |
+| Intake Qs | **meaning**, worries through test-date, score, wrong, GPA, schools, **student-name** |
+| Interstitials | INT1, INT3, INT8 quartet, INT12, INT2, INT6 timeline, **score-fit**, plan-path, **Ch.3 block**, plan-ready |
+| Tail | contact (TCPA checkbox), report (structured sections), book (embed), **booked** |
 | Routing | `lib/sat-plan-funnel/funnel-routing.ts` + `?step=` deep links |
 
 ## Next steps
 
 - [ ] **Phase B** — `POST /api/funnel/lead`, Supabase upsert, Klaviyo `onFunnelContactSubmitted`, Calendly webhook
-- [ ] **Contact** — TCPA SMS consent + privacy link (SPEC requirement)
+- [ ] **Contact** — TCPA checkbox in UI; Phase B API + legal review
 - [ ] **Schools step** — product may remove from spine (timeline → plan-path); routing still includes optional skip today
 - [ ] **Son/default triptych** — replace `prep-paths-triptych.png` with boy/neutral art (daughter strip live)
 - [ ] Optional interstitials: **INT9** why guided · **INT10** share with student · **INT5** weakness-first

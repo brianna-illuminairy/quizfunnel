@@ -1,7 +1,8 @@
 # Screen 01 — What's got you worried?
 
 **Status:** In review  
-**File:** `Landing.html?step=worries`  
+**Prior step:** [screen-00-meaning.md](screen-00-meaning.md) (`?step=meaning`)  
+**File:** `https://illuminairy.com/satplan?step=worries`  
 **Design ref:** `Downloads/screen-2/Screen 2.html`  
 **Layout rules:** [`files/funnel-layout-rules.md`](../funnel-layout-rules.md) — **read before changing CSS**
 
@@ -46,7 +47,7 @@ See [`../funnel-performance.md`](../funnel-performance.md).
 - [ ] Short viewport (`max-height: 700px`) — header compresses; grid scrolls inside main; CTA still pinned
 - [ ] Selection = inverted tile + corner check (matches Screen 2 ref)
 - [ ] Six tiles visible with reasonable scroll (not 2 giant tiles filling screen)
-- [ ] Back / progress / QUESTION 1 OF 14
+- [ ] Back → meaning · progress **QUESTION 2 OF 12**
 
 ## After approval
 

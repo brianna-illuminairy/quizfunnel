@@ -8,15 +8,17 @@
 
 ## Question
 
-**Has {subject} taken the SAT or PSAT before?** *(single select · auto-advance)*
+**Tell us about {possessive} prior SAT attempts** *(single select · auto-advance; PSAT-only remains an option)*
+
+Hint when Step 1 included **Recent score** (`recent_test`): *You mentioned a recent score — we'll ask for that on the next step.*
 
 | Option | `id` | Branch |
 |--------|------|--------|
-| No — neither SAT nor PSAT | `history_none` | → **INT8 quartet** (self-study fail → proof → guided → mistake-driven) — skip prep/score/wrong · then sat-changed → GPA |
-| PSAT only | `history_psat_only` | → prep (`?step=prep`) |
-| Once | `history_once` | → prep |
-| Twice | `history_twice` | → **INT3** (`?step=int3-retake`) → prep |
-| Three or more times | `history_three_plus` | → **INT3** → prep |
+| Not yet — no SAT or PSAT | `history_none` | → **INT8 quartet** — skip prep/score/wrong · then sat-changed → GPA |
+| PSAT only (not SAT yet) | `history_psat_only` | → prep (`?step=prep`) |
+| SAT once | `history_once` | → prep |
+| SAT twice | `history_twice` | → **INT3** (`?step=int3-retake`) → prep |
+| SAT 3+ times | `history_three_plus` | → **INT3** → prep |
 
 **Headline pronouns:** she / he / you / they from Step 2.
 
@@ -27,6 +29,6 @@
 ## QA
 
 - [ ] Headline matches `test_taker`
-- [ ] `history_none` routes to INT8 (never-tested mirror copy), then GPA; tested paths → prep → INT8 → GPA
+- [ ] `history_none` routes to INT8 (never-tested mirror copy), then sat-changed; tested paths → score → prep → INT8 → wrong → sat-changed → GPA
 - [ ] Answer persisted as `test_history` in session state
 - [ ] Fits 390×844 without scroll

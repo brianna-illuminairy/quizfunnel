@@ -11,13 +11,29 @@
 
 | Decision | Choice |
 |----------|--------|
-| **Goal before current score** | Target score (Step 3) **before** test history and recent score. Pain → who → **goal** → diagnosis. Do not reorder to “current first.” |
-| **Goal-first rationale** | Meta / Heyflow-style funnels perform when the path feels **goal-oriented**. Pain (Step 1) opens the conversation; target (Step 3) **locks an aspirational number** so later questions read as *“how do we get there?”* not *“rate where you are.”* |
+| **Positive before pain** | Meaning (Step 0) **before** worries — goal-oriented opener (Hims-style multiselect). |
+| **Goal before current score** | Target score (Step 4) **before** test history and recent score. Meaning → pain → who → **goal** → diagnosis. Do not reorder to “current first.” |
+| **Goal-first rationale** | Meta / Heyflow-style funnels perform when the path feels **goal-oriented**. Meaning + pain open the conversation; target (Step 4) **locks an aspirational number** so later questions read as *“how do we get there?”* not *“rate where you are.”* |
 | **What went wrong** | v4 **multiselect only** — no follow-up “main reason” screen (extra tap, minimal lift for interstitials). |
 | **How they prepped** | **Multiselect** — select all that apply; enabled Continue. |
 | **Test date** | **Not sure yet** + **date-aware upcoming list**; **Not planning** = same funnel, **report tone variant** (exploratory anchor + optional call, not hard sell). |
 | **Grouping** | One question per funnel step — no combined URLs. |
 | **Insight placement** | **Reactive co-mix** ([`FUNNEL-MASTER-FLOW.md`](FUNNEL-MASTER-FLOW.md)) — one Q **or** one I per screen. When an answer unlocks an aha, **next screen** is that I (e.g. GPA → smart-kid I; prep Khan → 2-sigma I; test date → timeline I). **Never** stack multiple I screens after several Q screens. |
+
+---
+
+## Step 0 — Meaning *(built: `meaning`)*
+
+**What would a stronger SAT score mean for you?** *(multiselect · enabled Continue · option-list)*
+
+| Label | `id` |
+|-------|------|
+| More college options | `college_options` |
+| Less stress before applications | `less_stress` |
+| More confidence on test day | `test_confidence` |
+| A score that matches their GPA | `match_gpa` |
+| Peace of mind before deadlines | `peace_of_mind` |
+| Feeling ready, not guessing | `feel_ready` |
 
 ---
 
@@ -67,19 +83,37 @@ Pronoun after Step 2: *she* / *he* / *you* / *they*.
 
 ## Step 4 — Test history
 
-**Has {subject} taken the PSAT or SAT before?** *(single select · auto-advance)*
+**Tell us about {possessive} prior SAT attempts** *(single select · auto-advance)*
+
+If Step 1 included **Recent score**, hint: *You mentioned a recent score — we'll ask for that on the next step.*
 
 | Option | `id` | Branching |
 |--------|------|-----------|
-| No — neither PSAT nor SAT | `history_none` | Skip Steps 5–8 |
-| PSAT only | `history_psat_only` | Steps 5–8; Step 7 label = PSAT |
-| Once | `history_once` | Steps 5–8 |
-| Twice | `history_twice` | Steps 5–8 |
-| Three or more times | `history_three_plus` | Steps 5–8 |
+| Not yet — no SAT or PSAT | `history_none` | Skip Steps 5–8 |
+| PSAT only (not SAT yet) | `history_psat_only` | Steps 5–8; Step 5 label = PSAT |
+| SAT once | `history_once` | Steps 5–8 |
+| SAT twice | `history_twice` | Steps 5–8 |
+| SAT 3+ times | `history_three_plus` | Steps 5–8 |
 
 ---
 
-## Step 5 — How they prepped *(conditional)*
+## Step 5 — Recent score *(conditional)*
+
+**Shown only if** Step 4 ≠ `history_none`.
+
+**What was {possessive} most recent {PSAT/SAT} score?** *(single select · auto-advance)*
+
+| Option | `id` |
+|--------|------|
+| Below 1000 | `score_below_1000` |
+| 1000–1100 | `score_1000_1100` |
+| 1100–1200 | `score_1100_1200` |
+| 1200–1300 | `score_1200_1300` |
+| 1300+ | `score_1300_plus` |
+
+---
+
+## Step 6 — How they prepped *(conditional)*
 
 **Shown only if** Step 4 ≠ `history_none`.
 
@@ -95,22 +129,6 @@ Pronoun after Step 2: *she* / *he* / *you* / *they*.
 | An app | `prep_app` |
 | Not sure | `prep_not_sure` |
 | Didn't prepare | `prep_didnt_prepare` |
-
----
-
-## Step 6 — Recent score *(conditional)*
-
-**Shown only if** Step 4 ≠ `history_none`.
-
-**What was {possessive} most recent {PSAT/SAT} score?** *(single select · auto-advance)*
-
-| Option | `id` |
-|--------|------|
-| Below 1000 | `score_below_1000` |
-| 1000–1100 | `score_1000_1100` |
-| 1100–1200 | `score_1100_1200` |
-| 1200–1300 | `score_1200_1300` |
-| 1300+ | `score_1300_plus` |
 
 ---
 
